@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Acceso Privado</title>
+  <meta name="description" content="Acceso exclusivo por invitacion.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Ambient background -->
+    <div class="ambient">
+      <div class="ambient__orb ambient__orb--1"></div>
+      <div class="ambient__orb ambient__orb--2"></div>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!-- Logo mark -->
+      <div class="logo" role="img" aria-label="Acceso privado">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo__icon">
+          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+          <path d="M24 8L24 40" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+          <path d="M8 24L40 24" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
+          <circle cx="24" cy="24" r="3" fill="currentColor" opacity="0.6"/>
+          <path d="M24 12L26 20H32L27 25L29 33L24 28L19 33L21 25L16 20H22L24 12Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="0.5"/>
+        </svg>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="heading">
+        <span class="heading__line heading__line--1">Ya sabes</span>
+        <span class="heading__line heading__line--2">por que estas aqui.</span>
+      </h1>
+
+      <p class="subtitle">Acceso solo por invitacion. Introduce tus datos para continuar.</p>
+
+      <!-- Form -->
+      <form class="form" id="access-form" novalidate>
+        <div class="form__group">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form__input"
+            placeholder="Tu email"
+            required
+            autocomplete="email"
+          >
+          <label for="email" class="form__label">Email</label>
+        </div>
+
+        <div class="form__group">
+          <input
+            type="text"
+            name="referral_code"
+            id="referral-code"
+            class="form__input"
+            placeholder="Codigo de referido"
+            required
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <label for="referral-code" class="form__label">Codigo de referido</label>
+        </div>
+
+        <button type="submit" class="form__btn" id="submit-btn">
+          <span class="form__btn-text">Acceder</span>
+          <span class="form__btn-loader">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <div class="form__message" id="form-message" aria-live="polite"></div>
+      </form>
+
+      <!-- Footer line -->
+      <div class="footer-line">
+        <span class="footer-line__text">Privado &middot; Confidencial &middot; Por invitacion</span>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Email preview modal (for demo/testing) -->
+  <div class="modal" id="email-modal" inert>
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div class="modal__content">
+      <button type="button" class="modal__close" id="modal-close" aria-label="Cerrar">&times;</button>
+      <div class="modal__header">
+        <span class="modal__tag">Vista previa del email</span>
+        <p class="modal__note">Este es el email que recibira el usuario. En produccion se envia automaticamente.</p>
+      </div>
+      <iframe id="email-frame" class="modal__iframe" title="Vista previa email"></iframe>
+    </div>
+  </div>
+
+  <!-- Referral codes config & JS -->
+  <script src="js/referrals.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
