@@ -160,7 +160,7 @@
 
     iframe.src = templateUrl;
     modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
+    modal.removeAttribute('inert');
     document.body.style.overflow = 'hidden';
   }
 
@@ -174,7 +174,7 @@
 
     function closeModal() {
       modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('inert', '');
       document.body.style.overflow = '';
       var iframe = document.getElementById('email-frame');
       if (iframe) iframe.src = '';

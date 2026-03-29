@@ -32,7 +32,7 @@
     <main class="main">
 
       <!-- Logo mark -->
-      <div class="logo" aria-label="Acceso privado">
+      <div class="logo" role="img" aria-label="Acceso privado">
         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo__icon">
           <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
           <path d="M24 8L24 40" stroke="currentColor" stroke-width="0.5" opacity="0.2"/>
@@ -81,8 +81,8 @@
 
         <button type="submit" class="form__btn" id="submit-btn">
           <span class="form__btn-text">Acceder</span>
-          <span class="form__btn-loader" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <span class="form__btn-loader">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
             </svg>
           </span>
@@ -101,10 +101,10 @@
   </div>
 
   <!-- Email preview modal (for demo/testing) -->
-  <div class="modal" id="email-modal" aria-hidden="true">
+  <div class="modal" id="email-modal" inert>
     <div class="modal__backdrop" id="modal-backdrop"></div>
     <div class="modal__content">
-      <button class="modal__close" id="modal-close" aria-label="Cerrar">&times;</button>
+      <button type="button" class="modal__close" id="modal-close" aria-label="Cerrar">&times;</button>
       <div class="modal__header">
         <span class="modal__tag">Vista previa del email</span>
         <p class="modal__note">Este es el email que recibira el usuario. En produccion se envia automaticamente.</p>
