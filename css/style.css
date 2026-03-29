@@ -249,12 +249,12 @@ p {
   box-shadow: var(--shadow-sm);
 }
 
-.nav__cta {
+.nav__cta.btn {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .nav__cta {
+  .nav__cta.btn {
     display: inline-flex;
   }
 }
