@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informacion sobre el servicio</title>
+  <style>
+    /* Email-safe styles — inline-friendly */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0a0a0c;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: #e8e6e3;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #111114;
+    }
+
+    .header {
+      padding: 48px 40px 32px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-mark {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,151,59,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c4973b;
+      font-size: 18px;
+    }
+
+    .header-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: #e8e6e3;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .body-section {
+      padding: 40px;
+    }
+
+    .greeting {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c4973b;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .text-block {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+    }
+
+    .text-block p {
+      margin: 0 0 16px;
+    }
+
+    .text-block strong {
+      color: #e8e6e3;
+      font-weight: 500;
+    }
+
+    /* Pricing Table */
+    .pricing {
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    .pricing-header {
+      background: rgba(196,151,59,0.08);
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .pricing-header span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c4973b;
+    }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .pricing-row:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-service {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .pricing-price {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      color: #e8e6e3;
+      font-weight: 400;
+    }
+
+    .pricing-note {
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.02);
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+    }
+
+    /* Process Steps */
+    .steps {
+      margin-bottom: 32px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,151,59,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #c4973b;
+      margin-top: 2px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .step-text strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 8px 0 32px;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 32px 40px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(196,151,59,0.03);
+    }
+
+    .cta-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: #e8e6e3;
+      margin-bottom: 12px;
+    }
+
+    .cta-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 40px;
+      background: #c4973b;
+      color: #0a0a0c;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .cta-fine {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 40px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .footer-text {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header { padding: 32px 24px 24px; }
+      .body-section { padding: 28px 24px; }
+      .cta-section { padding: 24px; }
+      .pricing-row { padding: 12px 16px; }
+      .footer { padding: 20px 24px; }
+    }
+  </style>
+  <script>
+    /* Read URL params and inject into template */
+    document.addEventListener('DOMContentLoaded', function() {
+      var params = new URLSearchParams(window.location.search);
+      var email = params.get('email') || 'usuario@email.com';
+      var referrer = params.get('referrer') || 'un contacto de confianza';
+
+      var emailEl = document.getElementById('user-email');
+      var refEl = document.getElementById('referrer-name');
+      if (emailEl) emailEl.textContent = email;
+      if (refEl) refEl.textContent = referrer;
+    });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-mark">&#9733;</div>
+      <h1 class="header-title">Acceso verificado</h1>
+      <p class="header-sub">Informacion confidencial</p>
+    </div>
+
+    <!-- Body -->
+    <div class="body-section">
+
+      <p class="greeting">
+        Has llegado aqui porque <strong id="referrer-name">alguien de confianza</strong> te ha recomendado.<br>
+        Esto no es un servicio abierto al publico. Trabajamos solo con personas que vienen por recomendacion directa.
+      </p>
+
+      <div class="divider"></div>
+
+      <!-- What we do -->
+      <span class="section-label">Que hacemos</span>
+      <div class="text-block">
+        <p>
+          Ayudamos a estudiantes universitarios a <strong>sacar adelante su TFG o TFM</strong> cuando estan bloqueados, 
+          van tarde o no saben por donde avanzar.
+        </p>
+        <p>
+          No somos una academia. No vendemos trabajos por paginas. Lo que hacemos es <strong>sentarnos contigo, 
+          entender tu situacion</strong> y darte la estructura, la direccion y el acompanamiento que necesitas 
+          para llegar a una entrega defendible.
+        </p>
+        <p>
+          Cada caso es distinto. Por eso trabajamos de forma personalizada, adaptandonos a tu carrera, 
+          tu tutor, tus plazos y tu nivel real.
+        </p>
+      </div>
+
+      <!-- How it works -->
+      <span class="section-label">Como funciona</span>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-text">
+            <strong>Evaluacion inicial</strong>
+            Te hacemos una entrevista rapida para entender en que punto estas, que te falta y cuales son tus plazos reales.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-text">
+            <strong>Plan de trabajo</strong>
+            Disenamos un plan a medida con los pasos concretos que necesitas para avanzar. Nada generico.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-text">
+            <strong>Acompanamiento continuo</strong>
+            Te guiamos en cada fase: estructura, metodologia, redaccion, revision. Hasta que entregues.
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Pricing -->
+      <span class="section-label">Inversion</span>
+      <div class="pricing">
+        <div class="pricing-header">
+          <span>Tarifas actuales</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">TFG — Acompanamiento completo</span>
+          <span class="pricing-price">900 &euro;</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">TFM — Acompanamiento completo</span>
+          <span class="pricing-price">1.400 &euro;</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">Casos complejos / urgentes</span>
+          <span class="pricing-price">Hasta 2.000 &euro;</span>
+        </div>
+        <div class="pricing-note">
+          Precio final depende de la complejidad, el plazo y el estado actual del trabajo.
+        </div>
+      </div>
+
+      <div class="text-block">
+        <p>
+          <strong>Actualmente estamos con una carga de trabajo muy alta.</strong> 
+          Aceptamos nuevos casos de forma limitada y por orden de lista de espera. 
+          Si estas interesado, te recomendamos confirmar tu plaza cuanto antes.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2 class="cta-title">Reserva tu plaza</h2>
+      <p class="cta-text">
+        Si quieres que trabajemos contigo, acepta las condiciones y te incluimos en la lista de espera. 
+        En cuanto haya un hueco, nos ponemos en contacto contigo.
+      </p>
+      <!-- INTEGRATION POINT: Replace href with your Stripe Checkout link -->
+      <a href="#" class="cta-btn" onclick="alert('Aqui ira el enlace de pago con Stripe. Configura tu cuenta de Stripe y reemplaza este enlace.'); return false;">
+        Aceptar condiciones y reservar
+      </a>
+      <p class="cta-fine">
+        Al hacer clic, seras redirigido a la pasarela de pago segura.<br>
+        Tu plaza queda reservada una vez completado el pago.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text">
+        Este email ha sido enviado a <span id="user-email">tu email</span> porque 
+        accediste a traves de un codigo de invitacion verificado.<br>
+        Confidencial. No reenvies este email.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
