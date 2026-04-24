@@ -29,6 +29,31 @@ function setLang(lang) {
   if (dlEmail) dlEmail.placeholder = isEs ? 'Email' : 'Email';
 
   try { localStorage.setItem('spadki-lang', lang); } catch(e) {}
+
+  // Restart hero animations so they play on newly-visible elements
+  var heroEls = document.querySelectorAll('.hero-badge, .hero h1, .hero-subtitle, .hero-cta');
+  heroEls.forEach(function(el) {
+    el.style.animation = 'none';
+    void el.offsetHeight;
+    el.style.animation = '';
+  });
+
+  // Re-trigger reveal items that may have been hidden
+  var revealItems = document.querySelectorAll('.reveal-item');
+  revealItems.forEach(function(item) {
+    item.classList.remove('visible');
+  });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries, o) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          o.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealItems.forEach(function(item) { obs.observe(item); });
+  }
 }
 
 // ═══════════════════ FAQ ACCORDION ═══════════════════

@@ -107,6 +107,7 @@ h3 { font-size: var(--fs-h3); }
 
 /* ═══════════════════ LANGUAGE SWITCHER ═══════════════════ */
 .lang-es { display: none !important; }
+body.lang-es { display: block !important; }
 
 body.lang-es .lang-pl { display: none !important; }
 body.lang-es .lang-es { display: block !important; }
