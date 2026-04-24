@@ -1,9 +1,9 @@
 /* ==========================================================================
-   SPADKI-HISZPANIA — Main JavaScript
-   Language switcher, calculator, FAQ, animations, forms, cookie banner
+   Spadki-Hiszpania — Main JS
+   Language switcher, calculator, FAQ, modal, cookie consent, scroll effects
    ========================================================================== */
 
-// ---- Language Switcher ----
+// ═══════════════════ LANGUAGE SWITCHER ═══════════════════
 function setLang(lang) {
   if (lang === 'es') {
     document.body.classList.add('lang-es');
@@ -13,161 +13,277 @@ function setLang(lang) {
   document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
   document.getElementById('btn-es').classList.toggle('active', lang === 'es');
   document.documentElement.lang = lang;
+
+  // Update placeholders
+  var isEs = lang === 'es';
+  var nameInputs = document.querySelectorAll('input[name="name"]');
+  nameInputs.forEach(function(el) { el.placeholder = isEs ? 'Nombre' : 'Imię i nazwisko'; });
+  var emailInputs = document.querySelectorAll('input[name="email"]');
+  emailInputs.forEach(function(el) { el.placeholder = isEs ? 'Email' : 'Email'; });
+  var msgInputs = document.querySelectorAll('textarea[name="message"]');
+  msgInputs.forEach(function(el) { el.placeholder = isEs ? 'Describe tu situación...' : 'Opisz swoją sytuację...'; });
+
+  var dlName = document.getElementById('dlName');
+  var dlEmail = document.getElementById('dlEmail');
+  if (dlName) dlName.placeholder = isEs ? 'Nombre' : 'Imię';
+  if (dlEmail) dlEmail.placeholder = isEs ? 'Email' : 'Email';
+
   try { localStorage.setItem('spadki-lang', lang); } catch(e) {}
 }
 
-// Restore language
-(function() {
+// ═══════════════════ FAQ ACCORDION ═══════════════════
+document.addEventListener('DOMContentLoaded', function() {
+  // Restore language
   try {
-    var saved = localStorage.getItem('spadki-lang');
-    if (saved === 'es') setLang('es');
-  } catch(e) {}
-})();
+    var savedLang = localStorage.getItem('spadki-lang');
+    if (savedLang === 'es') setLang('es');
+    else setLang('pl');
+  } catch(e) { setLang('pl'); }
 
-// ---- Mobile Menu ----
-function toggleMenu() {
-  document.getElementById('navLinks').classList.toggle('active');
-}
-
-function closeMenu() {
-  document.getElementById('navLinks').classList.remove('active');
-}
-
-// ---- FAQ Accordion ----
-function toggleFaq(btn) {
-  var item = btn.parentElement;
-  var wasActive = item.classList.contains('active');
-
-  // Close all
-  document.querySelectorAll('.faq-item').forEach(function(el) {
-    el.classList.remove('active');
-    el.querySelector('.faq-answer').style.maxHeight = null;
+  // FAQ
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function(item) {
+    var btn = item.querySelector('.faq-question');
+    btn.addEventListener('click', function() {
+      var wasActive = item.classList.contains('active');
+      faqItems.forEach(function(other) {
+        other.classList.remove('active');
+        var a = other.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = null;
+        var b = other.querySelector('.faq-question');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasActive) {
+        item.classList.add('active');
+        var answer = item.querySelector('.faq-answer');
+        if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
 
-  // Open clicked if wasn't active
-  if (!wasActive) {
-    item.classList.add('active');
-    var answer = item.querySelector('.faq-answer');
-    answer.style.maxHeight = answer.scrollHeight + 'px';
+  // Set initial placeholders
+  var currentLang = document.body.classList.contains('lang-es') ? 'es' : 'pl';
+  setLang(currentLang);
+
+  // Scroll reveal
+  var revealItems = document.querySelectorAll('.reveal-item');
+  if (revealItems.length > 0 && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealItems.forEach(function(item) { observer.observe(item); });
   }
-}
 
-// ---- Tax Calculator ----
-function calculateTax() {
-  var value = parseFloat(document.getElementById('calcValue').value) || 0;
-  var ccaa = document.getElementById('calcCCAA').value;
-  var group = parseInt(document.getElementById('calcGroup').value) || 2;
+  // Header scroll effect
+  var header = document.getElementById('header');
+  if (header) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
 
-  if (value <= 0) {
-    alert(document.body.classList.contains('lang-es')
-      ? 'Por favor, introduce un valor mayor que 0.'
-      : 'Proszę wpisać wartość większą niż 0.');
+  // Mobile toggle
+  var toggle = document.getElementById('mobileToggle');
+  var nav = document.getElementById('navLinks');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Contact form
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var isEs = document.body.classList.contains('lang-es');
+      alert(isEs ? 'Gracias. Te contactaremos en 24 horas.' : 'Dziękujemy. Skontaktujemy się w ciągu 24 godzin.');
+      contactForm.reset();
+    });
+  }
+
+  // Download form
+  var downloadForm = document.getElementById('downloadForm');
+  if (downloadForm) {
+    downloadForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('dlName').value;
+      var email = document.getElementById('dlEmail').value;
+      var isEs = document.body.classList.contains('lang-es');
+      console.log('Lead magnet download:', { name: name, email: email, resource: currentResource });
+      alert(isEs ? '¡Gracias! El material ha sido enviado a tu email.' : 'Dziękujemy! Materiał został wysłany na Twój email.');
+      closeModal();
+      downloadForm.reset();
+    });
+  }
+
+  // Cookie banner
+  try {
+    if (!localStorage.getItem('spadki-cookies')) {
+      var banner = document.getElementById('cookieBanner');
+      if (banner) {
+        setTimeout(function() { banner.classList.add('visible'); }, 1000);
+      }
+    }
+  } catch(e) {}
+});
+
+// ═══════════════════ CALCULATOR ═══════════════════
+function calculate() {
+  var value = parseFloat(document.getElementById('calcValue').value);
+  if (!value || value <= 0) {
+    var isEs = document.body.classList.contains('lang-es');
+    alert(isEs ? 'Introduce un valor válido' : 'Wprowadź prawidłową kwotę');
     return;
   }
 
-  // Reductions by group
+  var ccaa = document.getElementById('calcCCAA').value;
+  var group = parseInt(document.getElementById('calcGroup').value);
+
+  // Group reductions (art. 20.2 LISD)
   var reductions = { 1: 47859, 2: 15957, 3: 7993, 4: 0 };
   var reduction = reductions[group] || 0;
-  var taxableBase = Math.max(0, value - reduction);
 
-  // Progressive rates (state scale)
+  // Taxable base after reduction
+  var taxBase = Math.max(0, value - reduction);
+
+  // Progressive tax rates (art. 21 LISD - state scale)
   var brackets = [
-    { limit: 7993.46, rate: 0.0765 },
-    { limit: 15980.91, rate: 0.0850 },
-    { limit: 23968.36, rate: 0.0935 },
-    { limit: 31955.81, rate: 0.1020 },
-    { limit: 39943.26, rate: 0.1105 },
-    { limit: 47930.72, rate: 0.1190 },
-    { limit: 55918.17, rate: 0.1275 },
-    { limit: 63905.62, rate: 0.1360 },
-    { limit: 71893.07, rate: 0.1445 },
-    { limit: 79880.52, rate: 0.1530 },
-    { limit: 119820.77, rate: 0.1615 },
-    { limit: 159761.03, rate: 0.1870 },
-    { limit: 239641.54, rate: 0.2125 },
-    { limit: 398402.57, rate: 0.2550 },
-    { limit: 797814.33, rate: 0.2975 },
-    { limit: Infinity, rate: 0.3400 }
+    { limit: 7993.46, rate: 0.0765, base: 0 },
+    { limit: 15980.91, rate: 0.0850, base: 611.50 },
+    { limit: 23968.36, rate: 0.0935, base: 1290.43 },
+    { limit: 31955.81, rate: 0.1020, base: 2037.26 },
+    { limit: 39943.26, rate: 0.1105, base: 2851.98 },
+    { limit: 47930.72, rate: 0.1190, base: 3734.59 },
+    { limit: 55918.17, rate: 0.1275, base: 4685.10 },
+    { limit: 63905.62, rate: 0.1360, base: 5703.50 },
+    { limit: 71893.07, rate: 0.1445, base: 6789.79 },
+    { limit: 79880.52, rate: 0.1530, base: 7943.98 },
+    { limit: 119820.77, rate: 0.1700, base: 9166.06 },
+    { limit: 159757.03, rate: 0.1870, base: 15955.94 },
+    { limit: 239636.53, rate: 0.2040, base: 23410.88 },
+    { limit: 398777.54, rate: 0.2550, base: 39694.83 },
+    { limit: 797555.08, rate: 0.2950, base: 80180.77 },
+    { limit: Infinity, rate: 0.3400, base: 197735.97 }
   ];
 
   var tax = 0;
-  var prev = 0;
   for (var i = 0; i < brackets.length; i++) {
-    var bracket = brackets[i];
-    if (taxableBase <= prev) break;
-    var taxable = Math.min(taxableBase, bracket.limit) - prev;
-    if (taxable > 0) {
-      tax += taxable * bracket.rate;
+    if (taxBase <= brackets[i].limit) {
+      var prevLimit = i === 0 ? 0 : brackets[i - 1].limit;
+      tax = brackets[i].base + (taxBase - prevLimit) * brackets[i].rate;
+      break;
     }
-    prev = bracket.limit;
   }
 
-  // Multiplier by group & pre-existing wealth (simplified)
+  // Group multiplier (art. 22 LISD)
   var multipliers = { 1: 1.0, 2: 1.0, 3: 1.5882, 4: 2.0 };
-  tax *= (multipliers[group] || 1.0);
+  var grossTax = tax * (multipliers[group] || 1);
 
-  // Bonification by CCAA
-  var bonif = 0;
-  var bonifLabel = '';
-  if (group <= 2) {
-    switch(ccaa) {
-      case 'madrid':    bonif = 0.99; bonifLabel = 'Madrid: 99%'; break;
-      case 'valencia':  bonif = 0.99; bonifLabel = 'Valencia: 99%'; break;
-      case 'andalucia':
-        if (value <= 1000000) { bonif = 0.99; bonifLabel = 'Andaluc\u00eda: 99% (do 1M)'; }
-        else { bonif = 0.50; bonifLabel = 'Andaluc\u00eda: ~50% (>1M)'; }
-        break;
-      case 'murcia':    bonif = 0.99; bonifLabel = 'Murcia: 99%'; break;
-      case 'canarias':  bonif = 0.999; bonifLabel = 'Canarias: 99,9%'; break;
-      case 'cataluna':  bonif = 0; bonifLabel = 'Catalu\u00f1a: 0%'; break;
-      case 'baleares':  bonif = 0.33; bonifLabel = 'Baleares: ~33%'; break;
-      default:          bonif = 0; bonifLabel = '-'; break;
-    }
-  } else if (group === 3) {
-    switch(ccaa) {
-      case 'madrid': bonif = 0.50; bonifLabel = 'Madrid Gr.III: 50%'; break;
-      default: bonif = 0; bonifLabel = '-'; break;
-    }
-  }
+  // CCAA bonifications
+  var bonifications = {
+    'madrid': 0.99,
+    'andalucia': value <= 1000000 ? 0.99 : 0,
+    'valencia': 0.99,
+    'murcia': 0.99,
+    'castilla-leon': 0.99,
+    'aragon': 0.99,
+    'canarias': 0.999,
+    'galicia': 0,
+    'cataluna': 0,
+    'baleares': 0,
+    'pais-vasco': 0.95,
+    'asturias': 0,
+    'extremadura': 0,
+    'cantabria': 0.90,
+    'la-rioja': 0.99,
+    'navarra': 0,
+    'castilla-la-mancha': 0
+  };
 
-  var taxAfterBonif = tax * (1 - bonif);
+  var bonif = bonifications[ccaa] || 0;
 
-  // Display
+  // Only apply bonification for groups I and II
+  if (group > 2) bonif = 0;
+
+  var bonifAmount = grossTax * bonif;
+  var finalTax = Math.max(0, grossTax - bonifAmount);
+
+  // Display result
   var resultEl = document.getElementById('calcResult');
-  resultEl.classList.add('visible');
-  document.getElementById('calcAmount').textContent = formatCurrency(taxAfterBonif);
-
+  var amountEl = document.getElementById('calcResultAmount');
+  var breakdownEl = document.getElementById('calcBreakdown');
   var isEs = document.body.classList.contains('lang-es');
-  var breakdown = document.getElementById('calcBreakdown');
-  breakdown.innerHTML =
-    '<div class="row"><span>' + (isEs ? 'Base imponible' : 'Podstawa opodatkowania') + '</span><span>' + formatCurrency(taxableBase) + '</span></div>' +
-    '<div class="row"><span>' + (isEs ? 'Reducci\u00f3n personal' : 'Odliczenie osobiste') + '</span><span>-' + formatCurrency(reduction) + '</span></div>' +
-    '<div class="row"><span>' + (isEs ? 'Cuota \u00edntegra' : 'Podatek brutto') + '</span><span>' + formatCurrency(tax) + '</span></div>' +
-    '<div class="row"><span>' + (isEs ? 'Bonificaci\u00f3n' : 'Bonifikacja') + ' (' + bonifLabel + ')</span><span>-' + formatCurrency(tax * bonif) + '</span></div>' +
-    '<div class="row"><span>' + (isEs ? 'A PAGAR' : 'DO ZAP\u0141ATY') + '</span><span style="color:var(--red);font-size:1.1rem;">' + formatCurrency(taxAfterBonif) + '</span></div>';
+
+  amountEl.textContent = formatCurrency(finalTax);
+  resultEl.classList.add('visible');
+
+  breakdownEl.innerHTML =
+    '<div class="row"><span>' + (isEs ? 'Base imponible' : 'Podstawa opodatkowania') + '</span><span>' + formatCurrency(value) + '</span></div>' +
+    '<div class="row"><span>' + (isEs ? 'Reducción por parentesco (Gr. ' + group + ')' : 'Redukcja za pokrewieństwo (Gr. ' + group + ')') + '</span><span>-' + formatCurrency(reduction) + '</span></div>' +
+    '<div class="row"><span>' + (isEs ? 'Base liquidable' : 'Podstawa po redukcji') + '</span><span>' + formatCurrency(taxBase) + '</span></div>' +
+    '<div class="row"><span>' + (isEs ? 'Cuota íntegra' : 'Podatek brutto') + '</span><span>' + formatCurrency(grossTax) + '</span></div>' +
+    '<div class="row"><span>' + (isEs ? 'Bonificación CCAA (' + (bonif * 100).toFixed(1) + '%)' : 'Bonifikacja CCAA (' + (bonif * 100).toFixed(1) + '%)') + '</span><span>-' + formatCurrency(bonifAmount) + '</span></div>' +
+    '<div class="row"><span><strong>' + (isEs ? 'IMPUESTO A PAGAR' : 'PODATEK DO ZAPŁATY') + '</strong></span><span><strong>' + formatCurrency(finalTax) + '</strong></span></div>';
+
+  resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-function formatCurrency(n) {
-  return n.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+function formatCurrency(val) {
+  return val.toLocaleString('es-ES', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' €';
 }
 
-// ---- Lead Magnet Modal ----
-var currentMagnet = '';
+// ═══════════════════ MODAL ═══════════════════
+var currentResource = '';
 
-function openModal(type) {
-  currentMagnet = type;
-  document.getElementById('downloadModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
+function openModal(resource) {
+  currentResource = resource;
+  var modal = document.getElementById('downloadModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    var titles = {
+      'checklist': { pl: 'Pobierz: 7 błędów Polaków', es: 'Descargar: 7 errores de polacos' },
+      'modelo650': { pl: 'Pobierz: Modelo 650 krok po kroku', es: 'Descargar: Modelo 650 paso a paso' },
+      'bonifikacje': { pl: 'Pobierz: Tabela bonifikacji CCAA', es: 'Descargar: Tabla bonificaciones CCAA' }
+    };
+    var lang = document.body.classList.contains('lang-es') ? 'es' : 'pl';
+    var t = titles[resource] || { pl: 'Pobierz materiał', es: 'Descargar material' };
+    var titlePl = document.getElementById('modalTitle');
+    var titleEs = document.getElementById('modalTitleEs');
+    if (titlePl) titlePl.textContent = t.pl;
+    if (titleEs) titleEs.textContent = t.es;
+  }
 }
 
 function closeModal() {
-  document.getElementById('downloadModal').classList.remove('active');
-  document.body.style.overflow = '';
+  var modal = document.getElementById('downloadModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 }
 
 // Close modal on overlay click
 document.addEventListener('click', function(e) {
-  if (e.target.id === 'downloadModal') closeModal();
+  if (e.target.classList.contains('modal-overlay')) closeModal();
 });
 
 // Close modal on Escape
@@ -175,98 +291,15 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });
 
-function handleDownload(e) {
-  e.preventDefault();
-  var name = document.getElementById('dlName').value;
-  var email = document.getElementById('dlEmail').value;
-
-  // In production: send to backend / email service
-  console.log('Lead captured:', { name: name, email: email, magnet: currentMagnet });
-
-  var isEs = document.body.classList.contains('lang-es');
-  alert(isEs
-    ? 'Gracias, ' + name + '. Te enviaremos el material a ' + email + '.'
-    : 'Dzi\u0119kujemy, ' + name + '. Wy\u015blemy materia\u0142 na ' + email + '.');
-
-  closeModal();
-  document.getElementById('downloadForm').reset();
-}
-
-// ---- Contact Form ----
-function handleContact(e) {
-  e.preventDefault();
-  var isEs = document.body.classList.contains('lang-es');
-  alert(isEs
-    ? 'Gracias por tu mensaje. Nos pondremos en contacto contigo en menos de 24 horas.'
-    : 'Dzi\u0119kujemy za wiadomo\u015b\u0107. Skontaktujemy si\u0119 z Tob\u0105 w ci\u0105gu 24 godzin.');
-  document.getElementById('contactForm').reset();
-}
-
-// ---- Cookie Banner ----
-(function() {
-  try {
-    if (!localStorage.getItem('spadki-cookies')) {
-      document.getElementById('cookieBanner').classList.add('visible');
-    }
-  } catch(e) {
-    document.getElementById('cookieBanner').classList.add('visible');
-  }
-})();
-
+// ═══════════════════ COOKIES ═══════════════════
 function acceptCookies() {
   try { localStorage.setItem('spadki-cookies', 'accepted'); } catch(e) {}
-  document.getElementById('cookieBanner').classList.remove('visible');
+  var banner = document.getElementById('cookieBanner');
+  if (banner) banner.classList.remove('visible');
 }
 
-function rejectCookies() {
+function dismissCookies() {
   try { localStorage.setItem('spadki-cookies', 'rejected'); } catch(e) {}
-  document.getElementById('cookieBanner').classList.remove('visible');
+  var banner = document.getElementById('cookieBanner');
+  if (banner) banner.classList.remove('visible');
 }
-
-// ---- Scroll Animations (Intersection Observer) ----
-(function() {
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.fade-in').forEach(function(el) {
-      el.classList.add('visible');
-    });
-    return;
-  }
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-in').forEach(function(el) {
-    observer.observe(el);
-  });
-})();
-
-// ---- Navbar scroll effect ----
-(function() {
-  var navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-    } else {
-      navbar.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)';
-    }
-  });
-})();
-
-// ---- Smooth scroll for anchor links ----
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-  anchor.addEventListener('click', function(e) {
-    var target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      var offset = document.querySelector('.navbar').offsetHeight + 10;
-      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: top, behavior: 'smooth' });
-    }
-  });
-});
