@@ -33,10 +33,13 @@ function setLang(lang) {
 
 // ═══════════════════ FAQ ACCORDION ═══════════════════
 document.addEventListener('DOMContentLoaded', function() {
-  // Restore language
+  // Restore language — URL param takes priority, then localStorage
   try {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlLang = urlParams.get('lang');
     var savedLang = localStorage.getItem('spadki-lang');
-    if (savedLang === 'es') setLang('es');
+    if (urlLang === 'es' || urlLang === 'pl') setLang(urlLang);
+    else if (savedLang === 'es') setLang('es');
     else setLang('pl');
   } catch(e) { setLang('pl'); }
 
