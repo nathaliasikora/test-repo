@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var urlLang = urlParams.get('lang');
     var savedLang = localStorage.getItem('spadki-lang');
     if (urlLang === 'es' || urlLang === 'pl') setLang(urlLang);
-    else if (savedLang === 'es') setLang('es');
-    else setLang('pl');
-  } catch(e) { setLang('pl'); }
+    else if (savedLang === 'pl') setLang('pl');
+    else setLang('es');
+  } catch(e) { setLang('es'); }
 
   // FAQ
   var faqItems = document.querySelectorAll('.faq-item');
