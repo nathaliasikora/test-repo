@@ -1,0 +1,663 @@
+/* ============================================
+   PAGE HERO
+   ============================================ */
+.page-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 2em 6em;
+  background: var(--white);
+  position: relative;
+}
+
+.page-hero-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-hero-title .hero-line-1 {
+  font-size: clamp(2.5rem, 7vw, 7rem);
+}
+
+.page-hero-title .hero-line-2 {
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  font-weight: 300;
+  color: var(--black-40);
+}
+
+.page-hero-title .hero-line-3 {
+  font-size: clamp(2.5rem, 7vw, 7rem);
+}
+
+.page-hero-desc {
+  margin-top: 3em;
+  max-width: 36em;
+}
+
+.page-hero-desc p {
+  font-size: 1.125em;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 1em;
+  opacity: 0.7;
+}
+
+.page-hero-desc-text {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.5;
+  opacity: 0.6;
+  margin-top: 2em;
+}
+
+/* ============================================
+   COACHING PAGE - PROFILE CARDS
+   ============================================ */
+.section-em-text {
+  font-size: 1.25em;
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 2em;
+  margin-bottom: 3em;
+  opacity: 0.6;
+}
+
+.profile-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 2em;
+}
+
+.profile-card {
+  border: 1px solid var(--black-20);
+  border-radius: 0.25em;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.profile-card:hover {
+  background: var(--light-grey);
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 2em;
+}
+
+.profile-card-header h3 {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+.profile-toggle {
+  font-size: 1.5em;
+  font-weight: 300;
+  transition: transform 0.3s;
+}
+
+.profile-card.active .profile-toggle {
+  transform: rotate(45deg);
+}
+
+.profile-card-content {
+  padding: 0 2em;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.profile-card.active .profile-card-content {
+  max-height: 20em;
+  padding: 0 2em 2em;
+}
+
+.profile-card-content p {
+  font-size: 1em;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+/* ============================================
+   COACHING PAGE - EXPECT SECTION
+   ============================================ */
+.expect-section {
+  padding: 8em 2em;
+}
+
+.expect-subtitle {
+  font-size: 0.875em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 4em;
+  margin-bottom: 1em;
+}
+
+.expect-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 3em;
+}
+
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  gap: 3em;
+  margin-bottom: 4em;
+}
+
+.expect-item h3 {
+  font-size: 1.125em;
+  font-weight: 500;
+  margin-bottom: 0.75em;
+}
+
+.expect-item p {
+  font-size: 1em;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+.expect-image-wrapper {
+  border-radius: 0.5em;
+  overflow: hidden;
+  margin-bottom: 2em;
+  max-height: 60vh;
+}
+
+.expect-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expect-tagline {
+  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-top: 1em;
+}
+
+/* ============================================
+   COACHING PAGE - QUIZ SECTION
+   ============================================ */
+.quiz-section {
+  padding: 8em 2em;
+  background: var(--light-grey);
+}
+
+.quiz-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 3em;
+}
+
+.quiz-slider {
+  position: relative;
+  min-height: 12em;
+}
+
+.quiz-slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.quiz-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.quiz-counter {
+  font-size: 0.875em;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  margin-bottom: 2em;
+}
+
+.quiz-slide h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 1em;
+}
+
+.quiz-slide p {
+  font-size: 1.125em;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.7;
+  max-width: 36em;
+}
+
+.quiz-nav {
+  display: flex;
+  gap: 1em;
+  margin-top: 3em;
+}
+
+.quiz-prev, .quiz-next {
+  width: 3em;
+  height: 3em;
+  border: 1px solid var(--black-20);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25em;
+  transition: all 0.3s;
+  background: transparent;
+  cursor: pointer;
+}
+
+.quiz-prev:hover, .quiz-next:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+/* ============================================
+   COACHING PAGE - FAQ SECTION
+   ============================================ */
+.faq-section {
+  padding: 8em 2em;
+}
+
+.faq-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 3em;
+}
+
+.faq-heading strong {
+  font-weight: 500;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-trigger {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5em 0;
+  cursor: pointer;
+}
+
+.faq-trigger:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-trigger-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-trigger-header h3 {
+  font-size: 1.125em;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  width: 1.25em;
+  height: 1.25em;
+  position: relative;
+  flex-shrink: 0;
+  margin-left: 2em;
+}
+
+.faq-trigger-line {
+  position: absolute;
+  background: var(--white);
+}
+
+.faq-trigger-line.horizontal {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.faq-trigger-line.vertical {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+}
+
+.faq-trigger-spacing {
+  height: 0;
+  overflow: hidden;
+}
+
+.faq-trigger_content-wrapper {
+  height: 0;
+  overflow: hidden;
+}
+
+.faq-trigger_content-wrapper p {
+  font-size: 1em;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.7;
+  padding-bottom: 0.5em;
+}
+
+/* ============================================
+   CTA BLOCK
+   ============================================ */
+.cta-block {
+  margin-top: 3em;
+}
+
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+  padding: 1em 2.5em;
+  font-size: 0.875em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  border-radius: 100px;
+  display: inline-flex;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.center-content {
+  text-align: center;
+}
+
+.center-content .cta-block {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================
+   ABOUT PAGE - DETAIL SECTION
+   ============================================ */
+.about-detail-section {
+  padding: 8em 2em;
+  background: var(--light-grey);
+}
+
+.about-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4em;
+}
+
+.about-detail-item h3 {
+  font-size: 1.25em;
+  font-weight: 500;
+  margin-bottom: 0.75em;
+}
+
+.about-detail-item p {
+  font-size: 1em;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.7;
+}
+
+/* ============================================
+   TESTIMONIALS PAGE
+   ============================================ */
+.testimonials-grid-section {
+  padding: 6em 2em 8em;
+}
+
+.testimonials-masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  gap: 2em;
+}
+
+.testimonial-card-full {
+  background: var(--light-grey);
+  border-radius: 0.5em;
+  padding: 2.5em;
+}
+
+.testimonial-card-full .review-stars {
+  color: #f5c518;
+  font-size: 1.25em;
+  margin-bottom: 1.5em;
+  letter-spacing: 0.1em;
+}
+
+.testimonial-card-full p {
+  font-size: 1.125em;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 1.5em;
+  font-style: italic;
+}
+
+.testimonial-card-full .review-author {
+  font-size: 0.875em;
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+.contact-section {
+  padding: 0 2em 8em;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 6em;
+}
+
+.form-group {
+  margin-bottom: 2em;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75em;
+  opacity: 0.7;
+}
+
+.text-field {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid var(--black-20);
+  border-radius: 0.25em;
+  font-family: var(--font-main);
+  font-size: 1em;
+  font-weight: 300;
+  background: transparent;
+  transition: border-color 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.text-field:focus {
+  outline: none;
+  border-color: var(--black);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 8em;
+}
+
+.submit-button {
+  cursor: pointer;
+}
+
+.submit-button:focus {
+  outline: none;
+}
+
+.form-success h3 {
+  font-size: 2em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+}
+
+.form-success p {
+  font-size: 1.125em;
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  padding-top: 1em;
+}
+
+.contact-info-block h3 {
+  font-size: 0.875em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 1em;
+}
+
+.contact-info-block a {
+  display: block;
+  font-size: 1em;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+  transition: opacity 0.3s;
+  line-height: 1.5;
+}
+
+.contact-info-block a:hover {
+  opacity: 0.6;
+}
+
+/* ============================================
+   RESPONSIVE - PAGES
+   ============================================ */
+@media screen and (max-width: 991px) {
+  .about-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 3em;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 4em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .page-hero {
+    padding: 0 1.5em 4em;
+  }
+
+  .expect-section,
+  .faq-section,
+  .quiz-section {
+    padding: 5em 1.5em;
+  }
+
+  .expect-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-masonry {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-section {
+    padding: 0 1.5em 5em;
+  }
+}
+
+@media screen and (max-width: 478px) {
+  .page-hero-title .hero-line-1,
+  .page-hero-title .hero-line-2,
+  .page-hero-title .hero-line-3 {
+    font-size: 2.625em;
+  }
+}
+
+/* ============================================
+   LEGAL PAGE
+   ============================================ */
+.legal-content-section {
+  padding: 0 2em 8em;
+}
+
+.legal-text h2 {
+  font-size: 1.75em;
+  font-weight: 500;
+  margin-top: 3em;
+  margin-bottom: 1em;
+  letter-spacing: -0.01em;
+}
+
+.legal-text h2:first-child {
+  margin-top: 0;
+}
+
+.legal-text h3 {
+  font-size: 1.25em;
+  font-weight: 500;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.legal-text p {
+  font-size: 1em;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 1em;
+  opacity: 0.8;
+}
+
+.legal-text ul {
+  list-style: disc;
+  padding-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.legal-text li {
+  font-size: 1em;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 0.5em;
+  opacity: 0.8;
+}
+
+.legal-text a {
+  border-bottom: 1px solid currentColor;
+}
+
+.legal-updated {
+  margin-top: 3em;
+  font-size: 0.875em;
+  opacity: 0.4;
+}
