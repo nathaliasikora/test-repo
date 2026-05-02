@@ -220,6 +220,22 @@ body {
     text-transform: none;
 }
 
+.service-card-centered {
+    text-align: center;
+    justify-content: center;
+}
+
+.service-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-accent);
+    line-height: 1.5;
+    margin: 0.5rem 0;
+    max-width: 320px;
+}
+
 .service-description {
     font-size: 0.8rem;
     font-weight: 300;
