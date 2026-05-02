@@ -354,7 +354,8 @@ body {
     height: 100vh;
     z-index: 200;
     pointer-events: none;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .article-overlay.active {
@@ -362,7 +363,7 @@ body {
 }
 
 .article-expand-bg {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
@@ -481,4 +482,53 @@ body {
 .article-cta:hover {
     background: var(--color-accent);
     color: #191919;
+}
+
+.article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.article-list li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.article-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.article-list li strong {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.article-source-link {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 1px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.article-source-link:hover {
+    color: #fff;
+    border-color: #fff;
 }
