@@ -79,7 +79,7 @@ body {
 
 @-webkit-keyframes tracking-in-expand {
     0% {
-        letter-spacing: -0.5em;
+        letter-spacing: 0.5em;
         opacity: 0;
     }
     40% {
@@ -93,7 +93,7 @@ body {
 
 @keyframes tracking-in-expand {
     0% {
-        letter-spacing: -0.5em;
+        letter-spacing: 0.5em;
         opacity: 0;
     }
     40% {
