@@ -213,10 +213,10 @@ body {
 
 .service-title-large {
     font-family: var(--font-body);
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-    font-weight: 500;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    font-weight: 600;
     letter-spacing: 0.02em;
-    line-height: 1.5;
+    line-height: 1.4;
     text-transform: none;
 }
 
