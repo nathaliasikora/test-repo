@@ -211,12 +211,21 @@ body {
     color: var(--color-text);
 }
 
+.service-title-large {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    text-transform: none;
+}
+
 .service-description {
     font-size: 0.8rem;
     font-weight: 300;
     color: var(--color-text-muted);
     line-height: 1.7;
-    max-width: 260px;
+    max-width: 320px;
 }
 
 .service-link {
