@@ -73,18 +73,34 @@ body {
     font-style: italic;
     line-height: 1.1;
     margin-bottom: 1rem;
-    animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
-@keyframes focus-in-expand {
+@-webkit-keyframes tracking-in-expand {
     0% {
-        letter-spacing: 0.5em;
-        filter: blur(12px);
+        letter-spacing: -0.5em;
         opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
     }
     100% {
         letter-spacing: normal;
-        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        letter-spacing: normal;
         opacity: 1;
     }
 }
