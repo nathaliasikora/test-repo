@@ -72,7 +72,7 @@
                 </a>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openBlog()" style="cursor:pointer">
                 <div class="service-icon">
                     <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="6" y="10" width="36" height="28" rx="2"/>
@@ -82,11 +82,11 @@
                 </div>
                 <h3 class="service-title">BLOG</h3>
                 <p class="service-description">Najnowsze informacje o podatkach nieruchomościowych. Porady, zmiany w przepisach i praktyczne wskazówki.</p>
-                <a href="blog.html" class="service-link" aria-label="Przejdź do bloga">
+                <span class="service-link" aria-label="Przejdź do bloga">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 18l6-6-6-6"/>
                     </svg>
-                </a>
+                </span>
             </div>
         </section>
     </main>
@@ -160,6 +160,86 @@
         </div>
     </div>
 
+    <!-- Blog Overlay (Splash Page Style) -->
+    <div class="article-overlay" id="blog-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closeBlog()">&times;</button>
+        <div class="article-content article-content-wide" id="blog-content">
+            <div class="article-hero">
+                <h2 class="article-title">Blog</h2>
+                <p class="article-hero-sub">Podatki nieruchomościowe, przepisy i praktyczne porady</p>
+            </div>
+
+            <div class="deck-container">
+                <div class="deck-card" style="--cards:3">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Obowiązki podatkowe nierezydentów w Hiszpanii</h2>
+                        <p>3 artykuły</p>
+                    </div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Odpowiedzialność agenta nieruchomości</h2>
+                        <p>2 artykuły</p>
+                    </div>
+                </div>
+                <div class="deck-card" style="--cards:4">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Modelo 210 — przewodnik krok po kroku</h2>
+                        <p>4 artykuły</p>
+                    </div>
+                    <div class="deck-child"></div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Orzecznictwo Sądu Najwyższego</h2>
+                        <p>2 artykuły</p>
+                    </div>
+                </div>
+                <div class="deck-card" style="--cards:3">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Podatek od majątku i Wielkich Fortun</h2>
+                        <p>3 artykuły</p>
+                    </div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Jak odzyskać nadpłacone podatki</h2>
+                        <p>2 artykuły</p>
+                    </div>
+                </div>
+                <div class="deck-card" style="--cards:3">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Opinia biegłego sądowego — kiedy jest potrzebna</h2>
+                        <p>3 artykuły</p>
+                    </div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Zmiany w przepisach 2025/2026</h2>
+                        <p>2 artykuły</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="article-cta" onclick="closeBlog()">Wróć do strony głównej</button>
+        </div>
+    </div>
+
     <script>
     function openArticle() {
         var overlay = document.getElementById('article-overlay');
@@ -168,6 +248,16 @@
     }
     function closeArticle() {
         var overlay = document.getElementById('article-overlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openBlog() {
+        var overlay = document.getElementById('blog-overlay');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeBlog() {
+        var overlay = document.getElementById('blog-overlay');
         overlay.classList.remove('active');
         document.body.style.overflow = '';
     }

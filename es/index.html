@@ -72,7 +72,7 @@
                 </a>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openBlog()" style="cursor:pointer">
                 <div class="service-icon">
                     <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="6" y="10" width="36" height="28" rx="2"/>
@@ -82,11 +82,11 @@
                 </div>
                 <h3 class="service-title">BLOG</h3>
                 <p class="service-description">Últimas noticias sobre impuestos inmobiliarios. Consejos, cambios legislativos e indicaciones prácticas.</p>
-                <a href="blog.html" class="service-link" aria-label="Ir al blog">
+                <span class="service-link" aria-label="Ir al blog">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 18l6-6-6-6"/>
                     </svg>
-                </a>
+                </span>
             </div>
         </section>
     </main>
@@ -160,6 +160,86 @@
         </div>
     </div>
 
+    <!-- Blog Overlay (Splash Page Style) -->
+    <div class="article-overlay" id="blog-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closeBlog()">&times;</button>
+        <div class="article-content article-content-wide" id="blog-content">
+            <div class="article-hero">
+                <h2 class="article-title">Blog</h2>
+                <p class="article-hero-sub">Impuestos inmobiliarios, normativa y consejos prácticos</p>
+            </div>
+
+            <div class="deck-container">
+                <div class="deck-card" style="--cards:3">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Obligaciones fiscales de no residentes en España</h2>
+                        <p>3 artículos</p>
+                    </div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Responsabilidad del agente inmobiliario</h2>
+                        <p>2 artículos</p>
+                    </div>
+                </div>
+                <div class="deck-card" style="--cards:4">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Modelo 210 — guía paso a paso</h2>
+                        <p>4 artículos</p>
+                    </div>
+                    <div class="deck-child"></div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Jurisprudencia del Tribunal Supremo</h2>
+                        <p>2 artículos</p>
+                    </div>
+                </div>
+                <div class="deck-card" style="--cards:3">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Impuesto sobre el Patrimonio y Grandes Fortunas</h2>
+                        <p>3 artículos</p>
+                    </div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Cómo recuperar impuestos pagados de más</h2>
+                        <p>2 artículos</p>
+                    </div>
+                </div>
+                <div class="deck-card" style="--cards:3">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Informe pericial judicial — cuándo es necesario</h2>
+                        <p>3 artículos</p>
+                    </div>
+                    <div class="deck-child"></div>
+                </div>
+                <div class="deck-card" style="--cards:2">
+                    <div class="deck-child"></div>
+                    <div class="deck-child">
+                        <h2>Cambios normativos 2025/2026</h2>
+                        <p>2 artículos</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="article-cta" onclick="closeBlog()">Volver a la página principal</button>
+        </div>
+    </div>
+
     <script>
     function openArticle() {
         var overlay = document.getElementById('article-overlay');
@@ -168,6 +248,16 @@
     }
     function closeArticle() {
         var overlay = document.getElementById('article-overlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openBlog() {
+        var overlay = document.getElementById('blog-overlay');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeBlog() {
+        var overlay = document.getElementById('blog-overlay');
         overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
