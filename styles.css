@@ -73,15 +73,6 @@ body {
     font-style: italic;
     line-height: 1.1;
     margin-bottom: 1rem;
-    letter-spacing: 0.5em;
-    opacity: 0;
-    -webkit-transition: letter-spacing 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transition: letter-spacing 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-}
-
-.hero-title.settled {
-    letter-spacing: normal;
-    opacity: 1;
 }
 
 .hero-subtitle {
@@ -172,22 +163,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    transition: background-color 0.3s ease, opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0;
-    transform: translateY(40px);
-}
-
-.service-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.service-card:nth-child(2) {
-    transition-delay: 0.15s;
-}
-
-.service-card:nth-child(3) {
-    transition-delay: 0.3s;
 }
 
 .service-card:last-child {
@@ -201,11 +176,6 @@ body {
 .service-icon {
     color: var(--color-accent);
     margin-bottom: 0.25rem;
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover .service-icon {
-    transform: scale(1.1);
 }
 
 .service-title {

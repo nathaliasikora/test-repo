@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natalia Sikora – Biegły Sądowy ds. Podatków Nieruchomościowych</title>
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -89,26 +89,6 @@
         </section>
     </main>
 
-    <script>
-        // Hero title entrance: transition from airy/expanded to settled
-        requestAnimationFrame(function() {
-            requestAnimationFrame(function() {
-                document.querySelector('.hero-title').classList.add('settled');
-            });
-        });
 
-        // Scroll-triggered animations for service cards
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.service-card').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
 </body>
 </html>
