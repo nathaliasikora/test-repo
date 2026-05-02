@@ -67,12 +67,35 @@ body {
 }
 
 .hero-title {
-    font-family: var(--font-display);
+    font-family: 'Oswald', sans-serif;
     font-size: clamp(3.5rem, 7vw, 6rem);
-    font-weight: 400;
-    font-style: italic;
+    font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* Sliced text effect */
+.sliced-wrapper {
+    display: grid;
+}
+
+.sliced-wrapper > div {
+    grid-area: 1/1/-1/-1;
+}
+
+.sliced-top {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+
+.sliced-bottom {
+    clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    color: transparent;
+    background: -webkit-linear-gradient(177deg, black 53%, var(--color-text) 65%);
+    background: linear-gradient(177deg, black 53%, var(--color-text) 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    transform: translateX(-0.02em);
 }
 
 .hero-subtitle {
