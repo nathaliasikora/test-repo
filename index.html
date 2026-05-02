@@ -89,5 +89,20 @@
     <footer class="footer">
         <p>&copy; 2026 Natalia Sikora. Wszelkie prawa zastrzeżone.</p>
     </footer>
+
+    <script>
+        // Scroll-triggered animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
