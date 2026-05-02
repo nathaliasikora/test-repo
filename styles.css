@@ -305,3 +305,145 @@ body {
         border-bottom: none;
     }
 }
+
+/* ===== Article Overlay (Splash Page Expansion) ===== */
+#article-card {
+    cursor: pointer;
+}
+
+.article-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.article-overlay.active {
+    pointer-events: all;
+}
+
+.article-expand-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.article-expand-bg svg rect {
+    fill: #191919;
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    transition: clip-path 0.7s ease-in;
+}
+
+.article-overlay.active .article-expand-bg svg rect {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.article-close {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    z-index: 210;
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: 2.5rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.8s;
+    font-weight: 300;
+}
+
+.article-overlay.active .article-close {
+    opacity: 1;
+}
+
+.article-close:hover {
+    color: #fff;
+}
+
+.article-content {
+    position: relative;
+    z-index: 205;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 6rem 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
+}
+
+.article-overlay.active .article-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.article-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.article-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.article-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent);
+    margin-bottom: 2rem;
+}
+
+.article-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    font-style: italic;
+    color: var(--color-accent);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.article-body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.article-cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 2.5rem;
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.4s, color 0.4s;
+}
+
+.article-cta:hover {
+    background: var(--color-accent);
+    color: #191919;
+}
