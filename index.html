@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natalia Sikora – Biegły Sądowy ds. Podatków Nieruchomościowych</title>
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -97,62 +97,67 @@
             <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
         </div>
         <button class="article-close" id="article-close" onclick="closeArticle()">&times;</button>
-        <div class="article-content" id="article-content">
-            <h2 class="article-title">Kupiłeś dom w Hiszpanii. Nikt nie wyjaśnił Ci podatków. Teraz możesz dochodzić roszczeń od agenta, który to przed Tobą zataił.</h2>
-            <p class="article-body">Każdego roku właściciele nieruchomości niebędący rezydentami Hiszpanii muszą odprowadzać podatki — nawet jeśli dom stoi pusty, nawet jeśli go nie wynajmują, nawet jeśli korzystają z niego wyłącznie latem.</p>
+        <div class="article-content article-content-wide" id="article-content">
+            <!-- HERO TITLE — full width -->
+            <div class="article-hero">
+                <h2 class="article-title">Kupiłeś dom w Hiszpanii. Nikt nie wyjaśnił Ci podatków. Teraz możesz dochodzić roszczeń od agenta, który to przed Tobą zataił.</h2>
+                <p class="article-hero-sub">Każdego roku właściciele nieruchomości niebędący rezydentami Hiszpanii muszą odprowadzać podatki — nawet jeśli dom stoi pusty, nawet jeśli go nie wynajmują, nawet jeśli korzystają z niego wyłącznie latem.</p>
+            </div>
 
-            <div class="article-divider"></div>
-
-            <p class="article-body"><strong>Najczęstsze zobowiązania:</strong></p>
-
-            <ul class="article-list">
-                <li><strong>Modelo 210 (IRNR)</strong> — obowiązkowa deklaracja roczna, nawet jeśli nieruchomość nie jest wynajmowana
+            <!-- TAX OBLIGATION CARDS -->
+            <div class="article-cards">
+                <div class="article-card">
+                    <h3 class="article-card-title">Modelo 210 (IRNR)</h3>
+                    <p class="article-card-text">Obowiązkowa deklaracja roczna, nawet jeśli nieruchomość nie jest wynajmowana.</p>
                     <a href="https://sede.agenciatributaria.gob.es/Sede/procedimientoini/GF00.shtml" target="_blank" rel="noopener" class="article-source-link">Jeśli mi nie wierzysz, przeczytaj tutaj</a>
-                </li>
-                <li><strong>Podatek od majątku (Impuesto sobre el Patrimonio)</strong> — jeżeli wartość nieruchomości przekracza kwoty zwolnione
+                </div>
+                <div class="article-card">
+                    <h3 class="article-card-title">Podatek od majątku</h3>
+                    <p class="article-card-text">Impuesto sobre el Patrimonio — jeżeli wartość nieruchomości przekracza kwoty zwolnione.</p>
                     <a href="https://sede.agenciatributaria.gob.es/Sede/declaraciones-informativas-otros-impuestos-tasas/impuesto-sobre-patrimonio/quienes-estan-obligados-presentar-declaracion-ipatrimonio.html" target="_blank" rel="noopener" class="article-source-link">Jeśli mi nie wierzysz, przeczytaj tutaj</a>
-                </li>
-                <li><strong>Tymczasowy Podatek Solidarnościowy od Wielkich Fortun (ITSGF)</strong> — dla majątku netto przekraczającego ok. 3 mln EUR
+                </div>
+                <div class="article-card">
+                    <h3 class="article-card-title">Podatek od Wielkich Fortun (ITSGF)</h3>
+                    <p class="article-card-text">Tymczasowy Podatek Solidarnościowy — dla majątku netto przekraczającego ok. 3 mln EUR.</p>
                     <a href="https://sede.agenciatributaria.gob.es/Sede/declaraciones-informativas-otros-impuestos-tasas/impuesto-temporal-solidaridad-grandes-fortunas.html" target="_blank" rel="noopener" class="article-source-link">Jeśli mi nie wierzysz, przeczytaj tutaj</a>
-                </li>
-            </ul>
+                </div>
+            </div>
 
-            <p class="article-body">Wielu polskich nabywców o tym nie wiedziało. Nikt im tego nie wyjaśnił.</p>
+            <!-- QUOTE SECTION -->
+            <div class="article-quote-section">
+                <p class="article-body-light">Wielu polskich nabywców o tym nie wiedziało. Nikt im tego nie wyjaśnił. Gdy pytają agenta nieruchomości, odpowiedź jest zawsze taka sama:</p>
+                <p class="article-quote">„Ja nie jestem doradcą podatkowym."</p>
+            </div>
 
-            <p class="article-body">Gdy pytają agenta nieruchomości, który obsługiwał transakcję, odpowiedź jest zawsze taka sama:</p>
+            <!-- COURT RULINGS -->
+            <div class="article-section">
+                <h3 class="article-section-title">Sąd Najwyższy Hiszpanii widzi to inaczej.</h3>
+                <p class="article-body-light">W dwóch orzeczeniach Tribunal Supremo stwierdził, że gdy agencja działa w charakterze doradcy, ma <strong>prawny obowiązek informowania o wszystkich istotnych kosztach</strong> transakcji.</p>
+            </div>
 
-            <p class="article-quote">„Ja nie jestem doradcą podatkowym."</p>
-
-            <div class="article-divider"></div>
-
-            <p class="article-body"><strong>Sąd Najwyższy Hiszpanii widzi to inaczej.</strong></p>
-
-            <p class="article-body">W dwóch orzeczeniach Tribunal Supremo stwierdził, że gdy agencja działa w charakterze doradcy, ma <strong>prawny obowiązek informowania o wszystkich istotnych kosztach</strong> transakcji. Roczne podatki się liczą. Kary za brak deklaracji — również.</p>
-
-            <ul class="article-list">
-                <li><strong>Wyrok TS z 11 maja 2016 r.</strong> — TS orzekł, że obowiązkiem agenta jest nie tylko znajomość podatku, lecz <em>„udzielenie kontrahentowi prawidłowej informacji, tak aby mógł on racjonalnie ocenić, czy zawarcie umowy leży w jego interesie"</em>
+            <div class="article-cards article-cards-2col">
+                <div class="article-card">
+                    <h3 class="article-card-title">Wyrok TS z 11 maja 2016 r.</h3>
+                    <p class="article-card-text">TS orzekł, że obowiązkiem agenta jest nie tylko znajomość podatku, lecz <em>„udzielenie kontrahentowi prawidłowej informacji, tak aby mógł on racjonalnie ocenić, czy zawarcie umowy leży w jego interesie"</em></p>
                     <a href="https://fiscalaldia.economistjurist.es/responsabilidad-del-vendedor-por-no-informar-correctamente-al-comprador-del-impuesto-a-que-se-encontraba-sujeto-la-compraventa/" target="_blank" rel="noopener" class="article-source-link">Jeśli mi nie wierzysz, przeczytaj tutaj</a>
-                </li>
-                <li><strong>Wyrok TS 2586/2021 z 28 czerwca 2021 r.</strong> — TS skazał agencję za zatajenie informacji istotnych dla kupującego. Zatajenie = niedbalstwo = odpowiedzialność cywilna
+                </div>
+                <div class="article-card">
+                    <h3 class="article-card-title">Wyrok TS 2586/2021 z 28 czerwca 2021 r.</h3>
+                    <p class="article-card-text">TS skazał agencję za zatajenie informacji istotnych dla kupującego. Zatajenie = niedbalstwo = odpowiedzialność cywilna.</p>
                     <a href="https://st3.idealista.com/news/archivos/2021-09/sts_2586_2021_-_ecli_es_ts_2021_2586_-_poder_judicial.pdf" target="_blank" rel="noopener" class="article-source-link">Jeśli mi nie wierzysz, przeczytaj tutaj</a>
-                </li>
-            </ul>
+                </div>
+            </div>
 
-            <p class="article-body">Zatajenie tych informacji stanowi niedbalstwo. A za niedbalstwo się płaci.</p>
+            <p class="article-highlight">Zatajenie tych informacji stanowi niedbalstwo. A za niedbalstwo się płaci.</p>
 
-            <div class="article-divider"></div>
-
-            <p class="article-body"><strong>Co mogę dla Ciebie zrobić?</strong></p>
-
-            <p class="article-body">Jestem biegłym sądowym specjalizującym się w podatku od nieruchomości.</p>
-
-            <p class="article-body">Sporządzam opinię biegłego dokumentującą, że agent nie dopełnił swojego obowiązku — i stanowiącą podstawę do dochodzenia zwrotu nadpłaconych kwot: podatków, kar i odsetek.</p>
-
-            <p class="article-body"><strong>Masz sprawę?</strong></p>
-
-            <p class="article-body">Wyślij mi datę zakupu, kwotę transakcji i nazwę agencji.<br>Odpowiem w ciągu 48 godzin — po polsku lub po hiszpańsku.</p>
-
-            <button class="article-cta" onclick="closeArticle()">Wróć do strony głównej</button>
+            <!-- CTA SECTION -->
+            <div class="article-cta-section">
+                <h3 class="article-section-title">Co mogę dla Ciebie zrobić?</h3>
+                <p class="article-body-light">Jestem biegłym sądowym specjalizującym się w podatku od nieruchomości. Sporządzam opinię biegłego dokumentującą, że agent nie dopełnił swojego obowiązku — i stanowiącą podstawę do dochodzenia zwrotu nadpłaconych kwot: podatków, kar i odsetek.</p>
+                <h3 class="article-section-title" style="margin-top: 2rem;">Masz sprawę?</h3>
+                <p class="article-body-light">Wyślij mi datę zakupu, kwotę transakcji i nazwę agencji.<br>Odpowiem w ciągu 48 godzin — po polsku lub po hiszpańsku.</p>
+                <button class="article-cta" onclick="closeArticle()">Wróć do strony głównej</button>
+            </div>
         </div>
     </div>
 

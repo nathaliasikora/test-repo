@@ -414,6 +414,11 @@ body {
     transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
 }
 
+.article-content-wide {
+    max-width: 960px;
+    padding: 4rem 2rem 6rem;
+}
+
 .article-overlay.active .article-content {
     opacity: 1;
     transform: translateY(0);
@@ -482,6 +487,131 @@ body {
 .article-cta:hover {
     background: var(--color-accent);
     color: #191919;
+}
+
+/* Article Hero */
+.article-hero {
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.article-hero-sub {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-top: 1.5rem;
+}
+
+/* Article Cards Grid */
+.article-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.article-cards-2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.article-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.article-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.03em;
+}
+
+.article-card-text {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.article-card-text em {
+    color: var(--color-accent);
+    font-style: italic;
+}
+
+/* Article Sections */
+.article-quote-section {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-bottom: 3rem;
+}
+
+.article-body-light {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.article-section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.article-section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.article-highlight {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.article-cta-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.article-cta-section .article-body-light {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive: stack cards on mobile */
+@media (max-width: 700px) {
+    .article-cards,
+    .article-cards-2col {
+        grid-template-columns: 1fr;
+    }
+    .article-content-wide {
+        padding: 3rem 1.2rem 4rem;
+    }
 }
 
 .article-list {

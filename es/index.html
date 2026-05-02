@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natalia Sikora – Perito Judicial en Impuestos Inmobiliarios</title>
-    <link rel="stylesheet" href="../styles.css?v=19">
+    <link rel="stylesheet" href="../styles.css?v=20">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -97,62 +97,67 @@
             <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
         </div>
         <button class="article-close" id="article-close" onclick="closeArticle()">&times;</button>
-        <div class="article-content" id="article-content">
-            <h2 class="article-title">Te compraste una casa en España. Nadie te explicó los impuestos. Ahora puedes reclamar al agente que te lo ocultó.</h2>
-            <p class="article-body">Cada año, los propietarios no residentes en España deben pagar impuestos — aunque la casa esté vacía, aunque no la alquilen, aunque solo la usen en verano.</p>
+        <div class="article-content article-content-wide" id="article-content">
+            <!-- HERO TITLE — full width -->
+            <div class="article-hero">
+                <h2 class="article-title">Te compraste una casa en España. Nadie te explicó los impuestos. Ahora puedes reclamar al agente que te lo ocultó.</h2>
+                <p class="article-hero-sub">Cada año, los propietarios no residentes en España deben pagar impuestos — aunque la casa esté vacía, aunque no la alquilen, aunque solo la usen en verano.</p>
+            </div>
 
-            <div class="article-divider"></div>
-
-            <p class="article-body"><strong>Los más habituales:</strong></p>
-
-            <ul class="article-list">
-                <li><strong>Modelo 210 (IRNR)</strong> — declaración anual obligatoria aunque el inmueble no se alquile
+            <!-- TAX OBLIGATION CARDS -->
+            <div class="article-cards">
+                <div class="article-card">
+                    <h3 class="article-card-title">Modelo 210 (IRNR)</h3>
+                    <p class="article-card-text">Declaración anual obligatoria aunque el inmueble no se alquile.</p>
                     <a href="https://sede.agenciatributaria.gob.es/Sede/procedimientoini/GF00.shtml" target="_blank" rel="noopener" class="article-source-link">Si no me crees, léelo aquí</a>
-                </li>
-                <li><strong>Impuesto sobre el Patrimonio</strong> — si el valor del inmueble supera los mínimos exentos
+                </div>
+                <div class="article-card">
+                    <h3 class="article-card-title">Impuesto sobre el Patrimonio</h3>
+                    <p class="article-card-text">Si el valor del inmueble supera los mínimos exentos.</p>
                     <a href="https://sede.agenciatributaria.gob.es/Sede/declaraciones-informativas-otros-impuestos-tasas/impuesto-sobre-patrimonio/quienes-estan-obligados-presentar-declaracion-ipatrimonio.html" target="_blank" rel="noopener" class="article-source-link">Si no me crees, léelo aquí</a>
-                </li>
-                <li><strong>Impuesto Temporal de Solidaridad de las Grandes Fortunas</strong> — para patrimonios netos superiores a ~3M€
+                </div>
+                <div class="article-card">
+                    <h3 class="article-card-title">Grandes Fortunas (ITSGF)</h3>
+                    <p class="article-card-text">Impuesto Temporal de Solidaridad — para patrimonios netos superiores a ~3M€.</p>
                     <a href="https://sede.agenciatributaria.gob.es/Sede/declaraciones-informativas-otros-impuestos-tasas/impuesto-temporal-solidaridad-grandes-fortunas.html" target="_blank" rel="noopener" class="article-source-link">Si no me crees, léelo aquí</a>
-                </li>
-            </ul>
+                </div>
+            </div>
 
-            <p class="article-body">Muchos compradores polacos no lo sabían. Nadie se lo explicó.</p>
+            <!-- QUOTE SECTION -->
+            <div class="article-quote-section">
+                <p class="article-body-light">Muchos compradores polacos no lo sabían. Nadie se lo explicó. Cuando preguntan al agente inmobiliario, la respuesta es siempre la misma:</p>
+                <p class="article-quote">"Yo no soy asesor fiscal."</p>
+            </div>
 
-            <p class="article-body">Cuando preguntan al agente inmobiliario que les gestionó la compra, la respuesta es siempre la misma:</p>
+            <!-- COURT RULINGS -->
+            <div class="article-section">
+                <h3 class="article-section-title">El Tribunal Supremo español no lo ve así.</h3>
+                <p class="article-body-light">En dos sentencias, el TS establece que cuando una agencia actúa como asesora tiene <strong>obligación legal de informar de todos los costes relevantes</strong> de la operación.</p>
+            </div>
 
-            <p class="article-quote">"Yo no soy asesor fiscal."</p>
-
-            <div class="article-divider"></div>
-
-            <p class="article-body"><strong>El Tribunal Supremo español no lo ve así.</strong></p>
-
-            <p class="article-body">En dos sentencias, el TS establece que cuando una agencia actúa como asesora tiene <strong>obligación legal de informar de todos los costes relevantes</strong> de la operación. Los impuestos anuales cuentan. Las multas por no declarar, también.</p>
-
-            <ul class="article-list">
-                <li><strong>STS de 11 de mayo de 2016</strong> — el TS estableció que la obligación del agente no es solo conocer el impuesto, sino <em>"dar al contratante una información correcta a efectos de que pudiera decidir, razonablemente, si era de su interés celebrar el contrato"</em>
+            <div class="article-cards article-cards-2col">
+                <div class="article-card">
+                    <h3 class="article-card-title">STS de 11 de mayo de 2016</h3>
+                    <p class="article-card-text">El TS estableció que la obligación del agente no es solo conocer el impuesto, sino <em>"dar al contratante una información correcta a efectos de que pudiera decidir, razonablemente, si era de su interés celebrar el contrato"</em></p>
                     <a href="https://fiscalaldia.economistjurist.es/responsabilidad-del-vendedor-por-no-informar-correctamente-al-comprador-del-impuesto-a-que-se-encontraba-sujeto-la-compraventa/" target="_blank" rel="noopener" class="article-source-link">Si no me crees, léelo aquí</a>
-                </li>
-                <li><strong>STS 2586/2021 de 28 de junio de 2021</strong> — el TS condenó a una agencia por omitir información relevante para el comprador. Omitir = negligencia = responsabilidad civil
+                </div>
+                <div class="article-card">
+                    <h3 class="article-card-title">STS 2586/2021 de 28 de junio de 2021</h3>
+                    <p class="article-card-text">El TS condenó a una agencia por omitir información relevante para el comprador. Omitir = negligencia = responsabilidad civil.</p>
                     <a href="https://st3.idealista.com/news/archivos/2021-09/sts_2586_2021_-_ecli_es_ts_2021_2586_-_poder_judicial.pdf" target="_blank" rel="noopener" class="article-source-link">Si no me crees, léelo aquí</a>
-                </li>
-            </ul>
+                </div>
+            </div>
 
-            <p class="article-body">Omitir esa información es negligencia. Y la negligencia se paga.</p>
+            <p class="article-highlight">Omitir esa información es negligencia. Y la negligencia se paga.</p>
 
-            <div class="article-divider"></div>
-
-            <p class="article-body"><strong>¿Qué puedo hacer por ti?</strong></p>
-
-            <p class="article-body">Soy perito judicial especializado en fiscalidad inmobiliaria.</p>
-
-            <p class="article-body">Elaboro el informe pericial que documenta que el agente no cumplió con su obligación — y que sirve de base para reclamar lo que pagaste de más: impuestos, multas, intereses.</p>
-
-            <p class="article-body"><strong>¿Tienes un caso?</strong></p>
-
-            <p class="article-body">Mándame la fecha de compra, el importe y el nombre de la agencia.<br>Te respondo en 48 horas — en polaco o en español.</p>
-
-            <button class="article-cta" onclick="closeArticle()">Volver a la página principal</button>
+            <!-- CTA SECTION -->
+            <div class="article-cta-section">
+                <h3 class="article-section-title">¿Qué puedo hacer por ti?</h3>
+                <p class="article-body-light">Soy perito judicial especializado en fiscalidad inmobiliaria. Elaboro el informe pericial que documenta que el agente no cumplió con su obligación — y que sirve de base para reclamar lo que pagaste de más: impuestos, multas, intereses.</p>
+                <h3 class="article-section-title" style="margin-top: 2rem;">¿Tienes un caso?</h3>
+                <p class="article-body-light">Mándame la fecha de compra, el importe y el nombre de la agencia.<br>Te respondo en 48 horas — en polaco o en español.</p>
+                <button class="article-cta" onclick="closeArticle()">Volver a la página principal</button>
+            </div>
         </div>
     </div>
 
