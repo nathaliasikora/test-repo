@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Full Page Layout -->
+    <main class="page">
+        <!-- Hero Content (top left) -->
         <div class="hero-content">
             <h1 class="hero-title">Natalia Sikora</h1>
             <p class="hero-subtitle">biegły sądowy ds. podatków nieruchomościowych</p>
@@ -28,67 +29,65 @@
                 </form>
             </div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="service-card">
-            <div class="service-icon">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="8" y="6" width="32" height="36" rx="2"/>
-                    <path d="M16 14h16M16 20h16M16 26h10"/>
-                    <circle cx="32" cy="32" r="8" fill="none"/>
-                    <path d="M28 32h8M32 28v8"/>
-                </svg>
+        <!-- Vertical Divider Line -->
+        <div class="divider-line"></div>
+
+        <!-- Service Cards (bottom, overlaying the photo) -->
+        <section class="services">
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="8" y="6" width="32" height="36" rx="2"/>
+                        <path d="M16 14h16M16 20h16M16 26h10"/>
+                        <circle cx="32" cy="32" r="8" fill="none"/>
+                        <path d="M28 32h8M32 28v8"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">WYCENY</h3>
+                <p class="service-description">Profesjonalne wyceny nieruchomości na potrzeby postępowań sądowych, podatkowych i administracyjnych.</p>
+                <a href="#" class="service-link" aria-label="Więcej o wycenach">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
             </div>
-            <h3 class="service-title">WYCENY</h3>
-            <p class="service-description">Profesjonalne wyceny nieruchomości na potrzeby postępowań sądowych, podatkowych i administracyjnych.</p>
-            <a href="#" class="service-link" aria-label="Więcej o wycenach">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </a>
-        </div>
 
-        <div class="service-card">
-            <div class="service-icon">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M24 4L4 14l20 10 20-10L24 4z"/>
-                    <path d="M4 24l20 10 20-10"/>
-                    <path d="M4 34l20 10 20-10"/>
-                </svg>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M24 4L4 14l20 10 20-10L24 4z"/>
+                        <path d="M4 24l20 10 20-10"/>
+                        <path d="M4 34l20 10 20-10"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">KONSULTACJE</h3>
+                <p class="service-description">Doradztwo podatkowe w zakresie nieruchomości. Pomoc w optymalizacji obciążeń podatkowych i rozstrzyganiu sporów.</p>
+                <a href="#" class="service-link" aria-label="Więcej o konsultacjach">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
             </div>
-            <h3 class="service-title">KONSULTACJE</h3>
-            <p class="service-description">Doradztwo podatkowe w zakresie nieruchomości. Pomoc w optymalizacji obciążeń podatkowych i rozstrzyganiu sporów.</p>
-            <a href="#" class="service-link" aria-label="Więcej o konsultacjach">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </a>
-        </div>
 
-        <div class="service-card">
-            <div class="service-icon">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="6" y="10" width="36" height="28" rx="2"/>
-                    <path d="M6 18h36"/>
-                    <path d="M14 26h10M14 32h6"/>
-                </svg>
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="6" y="10" width="36" height="28" rx="2"/>
+                        <path d="M6 18h36"/>
+                        <path d="M14 26h10M14 32h6"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">BLOG</h3>
+                <p class="service-description">Najnowsze informacje o podatkach nieruchomościowych. Porady, zmiany w przepisach i praktyczne wskazówki.</p>
+                <a href="#" class="service-link" aria-label="Przejdź do bloga">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
             </div>
-            <h3 class="service-title">BLOG</h3>
-            <p class="service-description">Najnowsze informacje o podatkach nieruchomościowych. Porady, zmiany w przepisach i praktyczne wskazówki.</p>
-            <a href="#" class="service-link" aria-label="Przejdź do bloga">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Natalia Sikora. Wszelkie prawa zastrzeżone.</p>
-    </footer>
+        </section>
+    </main>
 
     <script>
         // Scroll-triggered animations
