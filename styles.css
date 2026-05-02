@@ -73,6 +73,10 @@ body {
     font-style: italic;
     line-height: 1.1;
     margin-bottom: 1rem;
+    opacity: 0;
+}
+
+.hero-title.animate {
     -webkit-animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
