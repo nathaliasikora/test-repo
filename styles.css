@@ -100,11 +100,15 @@ body {
 }
 
 .hero-subtitle {
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-    font-weight: 300;
-    color: var(--color-text-muted);
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    font-weight: 400;
+    color: var(--color-text);
     margin-bottom: 2.5rem;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+    margin-top: 1rem;
 }
 
 /* Signup Section */
