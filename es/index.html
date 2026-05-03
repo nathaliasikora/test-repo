@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="pl" href="../index.html">
     <link rel="alternate" hreflang="es" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/es/">
-    <link rel="stylesheet" href="../styles.css?v=22">
+    <link rel="stylesheet" href="../styles.css?v=23">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -198,6 +198,9 @@
                 <button class="article-cta" onclick="closeArticle()">Volver a la página principal</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeArticle()">Volver al menú</button>
+        </div>
     </div>
 
     <!-- Blog Overlay (Deck Cards Index) -->
@@ -277,6 +280,9 @@
 
             <button class="article-cta" onclick="closeBlog()">Volver a la página principal</button>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlog()">Volver al menú</button>
+        </div>
     </div>
 
     <!-- Blog Post 1: Devolución Modelo 210 -->
@@ -314,6 +320,9 @@
                 <p class="blog-cta-text">Si tienes un inmueble en España y presentas el Modelo 210, comprueba si no has pagado de más. Tienes 4 años. Escríbeme con los datos de tu declaración y te digo si tienes derecho a devolución.</p>
                 <button class="article-cta" onclick="closeBlogPost(1)">← Volver al blog</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(1)">← Volver al blog</button>
         </div>
     </div>
 
@@ -355,6 +364,9 @@
                 <button class="article-cta" onclick="closeBlogPost(2)">← Volver al blog</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(2)">← Volver al blog</button>
+        </div>
     </div>
 
     <!-- Blog Post 3: Análisis CDI Polonia-España -->
@@ -394,6 +406,9 @@
                 <p class="blog-cta-text">El CDI Polonia–España es un documento complejo. Una aplicación incorrecta significa impuestos de más. Contacta conmigo — revisaré si tu situación está correctamente liquidada.</p>
                 <button class="article-cta" onclick="closeBlogPost(3)">← Volver al blog</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(3)">← Volver al blog</button>
         </div>
     </div>
 
@@ -435,6 +450,9 @@
                 <button class="article-cta" onclick="closeBlogPost(4)">← Volver al blog</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(4)">← Volver al blog</button>
+        </div>
     </div>
 
     <!-- Blog Post 5: TPO -->
@@ -473,6 +491,9 @@
                 <button class="article-cta" onclick="closeBlogPost(5)">← Volver al blog</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(5)">← Volver al blog</button>
+        </div>
     </div>
 
     <!-- Blog Post 6: Disolución del condominio -->
@@ -509,6 +530,9 @@
                 <p class="blog-cta-text">Disolver un condominio cuesta dinero — pero puede costar mucho menos si se hace bien. Escríbeme antes de firmar la escritura.</p>
                 <button class="article-cta" onclick="closeBlogPost(6)">← Volver al blog</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(6)">← Volver al blog</button>
         </div>
     </div>
 
@@ -552,6 +576,9 @@
                 <p class="blog-cta-text">¿Alquilas un piso en España y tu inquilino no paga? Tienes que declarar el rendimiento — pero puedes deducir gastos, incluidos los saldos de dudoso cobro. Escríbeme y te digo qué puedes deducir.</p>
                 <button class="article-cta" onclick="closeBlogPost(7)">← Volver al blog</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(7)">← Volver al blog</button>
         </div>
     </div>
 
@@ -605,12 +632,17 @@
                 <button class="article-cta" onclick="closeBlogPost(8)">← Volver al blog</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(8)">← Volver al blog</button>
+        </div>
     </div>
 
 
     <script>
     function openArticle() {
-        document.getElementById('article-overlay').classList.add('active');
+        var el = document.getElementById('article-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     function closeArticle() {
@@ -618,7 +650,9 @@
         document.body.style.overflow = '';
     }
     function openBlog() {
-        document.getElementById('blog-overlay').classList.add('active');
+        var el = document.getElementById('blog-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     function closeBlog() {
@@ -627,11 +661,15 @@
     }
     function openBlogPost(n) {
         document.getElementById('blog-overlay').classList.remove('active');
-        document.getElementById('blog-post-' + n).classList.add('active');
+        var el = document.getElementById('blog-post-' + n);
+        el.scrollTop = 0;
+        el.classList.add('active');
     }
     function closeBlogPost(n) {
         document.getElementById('blog-post-' + n).classList.remove('active');
-        document.getElementById('blog-overlay').classList.add('active');
+        var el = document.getElementById('blog-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
     }
     </script>
 

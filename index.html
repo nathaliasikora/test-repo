@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="es" href="es/index.html">
     <link rel="alternate" hreflang="pl" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/">
-    <link rel="stylesheet" href="styles.css?v=22">
+    <link rel="stylesheet" href="styles.css?v=23">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -198,6 +198,9 @@
                 <button class="article-cta" onclick="closeArticle()">Wróć do strony głównej</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeArticle()">Wróć do menu</button>
+        </div>
     </div>
 
     <!-- Blog Overlay (Deck Cards Index) -->
@@ -277,6 +280,9 @@
 
             <button class="article-cta" onclick="closeBlog()">Wróć do strony głównej</button>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlog()">Wróć do menu</button>
+        </div>
     </div>
 
     <!-- Blog Post 1: Zwrot nadpłaty Modelo 210 -->
@@ -314,6 +320,9 @@
                 <p class="blog-cta-text">Jeśli masz nieruchomość w Hiszpanii i składasz Modelo 210 — sprawdź, czy nie przepłaciłeś. Masz na to 4 lata. Napisz do mnie z danymi deklaracji, a powiem Ci, czy masz prawo do zwrotu.</p>
                 <button class="article-cta" onclick="closeBlogPost(1)">← Wróć do bloga</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(1)">← Wróć do bloga</button>
         </div>
     </div>
 
@@ -355,6 +364,9 @@
                 <button class="article-cta" onclick="closeBlogPost(2)">← Wróć do bloga</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(2)">← Wróć do bloga</button>
+        </div>
     </div>
 
     <!-- Blog Post 3: Analiza CDI Polska-Hiszpania -->
@@ -394,6 +406,9 @@
                 <p class="blog-cta-text">Umowa CDI Polska–Hiszpania to złożony dokument. Niewłaściwe zastosowanie oznacza nadpłacony podatek. Skontaktuj się ze mną — sprawdzę, czy Twoja sytuacja jest poprawnie rozliczona.</p>
                 <button class="article-cta" onclick="closeBlogPost(3)">← Wróć do bloga</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(3)">← Wróć do bloga</button>
         </div>
     </div>
 
@@ -435,6 +450,9 @@
                 <button class="article-cta" onclick="closeBlogPost(4)">← Wróć do bloga</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(4)">← Wróć do bloga</button>
+        </div>
     </div>
 
     <!-- Blog Post 5: TPO — podatek od zakupu nieruchomości -->
@@ -473,6 +491,9 @@
                 <button class="article-cta" onclick="closeBlogPost(5)">← Wróć do bloga</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(5)">← Wróć do bloga</button>
+        </div>
     </div>
 
     <!-- Blog Post 6: Podział nieruchomości (condominio) -->
@@ -509,6 +530,9 @@
                 <p class="blog-cta-text">Podział nieruchomości to decyzja, która kosztuje — ale może kosztować dużo mniej, jeśli zrobisz to właściwie. Napisz do mnie zanim podpiszecie akt notarialny.</p>
                 <button class="article-cta" onclick="closeBlogPost(6)">← Wróć do bloga</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(6)">← Wróć do bloga</button>
         </div>
     </div>
 
@@ -552,6 +576,9 @@
                 <p class="blog-cta-text">Wynajmujesz mieszkanie w Hiszpanii i masz problem z najemcą? Nie płaci? Musisz zadeklarować dochód, ale możesz odliczyć koszty — w tym wierzytelności nieściągalne. Napisz do mnie, a sprawdzę, co możesz odliczyć.</p>
                 <button class="article-cta" onclick="closeBlogPost(7)">← Wróć do bloga</button>
             </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(7)">← Wróć do bloga</button>
         </div>
     </div>
 
@@ -605,12 +632,17 @@
                 <button class="article-cta" onclick="closeBlogPost(8)">← Wróć do bloga</button>
             </div>
         </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeBlogPost(8)">← Wróć do bloga</button>
+        </div>
     </div>
 
 
     <script>
     function openArticle() {
-        document.getElementById('article-overlay').classList.add('active');
+        var el = document.getElementById('article-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     function closeArticle() {
@@ -618,7 +650,9 @@
         document.body.style.overflow = '';
     }
     function openBlog() {
-        document.getElementById('blog-overlay').classList.add('active');
+        var el = document.getElementById('blog-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
     function closeBlog() {
@@ -627,11 +661,15 @@
     }
     function openBlogPost(n) {
         document.getElementById('blog-overlay').classList.remove('active');
-        document.getElementById('blog-post-' + n).classList.add('active');
+        var el = document.getElementById('blog-post-' + n);
+        el.scrollTop = 0;
+        el.classList.add('active');
     }
     function closeBlogPost(n) {
         document.getElementById('blog-post-' + n).classList.remove('active');
-        document.getElementById('blog-overlay').classList.add('active');
+        var el = document.getElementById('blog-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
     }
     </script>
 

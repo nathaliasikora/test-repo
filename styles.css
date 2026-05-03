@@ -373,34 +373,89 @@ body {
 .article-expand-bg svg rect {
     fill: #191919;
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    transition: clip-path 0.7s ease-in;
+    /* No transition on default = instant close */
 }
 
 .article-overlay.active .article-expand-bg svg rect {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: clip-path 0.7s ease-in;
 }
 
 .article-close {
-    position: absolute;
-    top: 2rem;
-    right: 3rem;
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
     z-index: 210;
-    background: none;
-    border: none;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--color-accent);
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.4s ease 0.8s;
+    pointer-events: none;
     font-weight: 300;
+    /* No transition = instant hide on close */
 }
 
 .article-overlay.active .article-close {
     opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.3s ease 0.8s;
 }
 
 .article-close:hover {
     color: #fff;
+    background: rgba(0,0,0,0.8);
+    border-color: var(--color-accent);
+}
+
+/* Fixed bottom bar — always visible */
+.overlay-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 215;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.article-overlay.active .overlay-bottom-bar {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.3s ease 0.9s;
+}
+
+.overlay-bottom-btn {
+    background: transparent;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.6rem 2rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.overlay-bottom-btn:hover {
+    background: var(--color-accent);
+    color: #191919;
 }
 
 .article-content {
@@ -411,17 +466,19 @@ body {
     padding: 6rem 8vw 6rem 8vw;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
+    /* No transition on default = instant close */
 }
 
 .article-content-wide {
     max-width: 100%;
     padding: 4rem 8vw 6rem;
+    padding-bottom: 5rem; /* space for fixed bottom bar */
 }
 
 .article-overlay.active .article-content {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
 }
 
 .article-title {
