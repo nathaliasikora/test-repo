@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="es" href="es/index.html">
     <link rel="alternate" hreflang="pl" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/">
-    <link rel="stylesheet" href="styles.css?v=24">
+    <link rel="stylesheet" href="styles.css?v=25">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -80,6 +80,22 @@
                         <path d="M9 18l6-6-6-6"/>
                     </svg>
                 </a>
+            </div>
+
+            <div class="service-card" onclick="openPricing()" style="cursor:pointer">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="24" cy="24" r="20"/>
+                        <path d="M24 12v24M18 20c0-2.2 2.7-4 6-4s6 1.8 6 4-2.7 4-6 4-6 1.8-6 4 2.7 4 6 4 6-1.8 6-4"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">CENNIK</h3>
+                <p class="service-description">Przejrzyste ceny. Wiesz za co płacisz, zanim podejmiesz decyzję.</p>
+                <span class="service-link" aria-label="Zobacz cennik">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
             </div>
 
             <div class="service-card" onclick="openBlog()" style="cursor:pointer">
@@ -200,6 +216,54 @@
         </div>
         <div class="overlay-bottom-bar">
             <button class="overlay-bottom-btn" onclick="closeArticle()">Wróć do menu</button>
+        </div>
+    </div>
+
+    <!-- Pricing Overlay -->
+    <div class="article-overlay" id="pricing-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closePricing()">&times;</button>
+        <div class="article-content article-content-wide">
+            <div class="article-hero">
+                <h2 class="article-title">Cennik</h2>
+                <p class="article-hero-sub">Przejrzyste ceny. Każdy przypadek jest inny — dokładną wycenę dostajesz po wstępnej analizie. Poniższe kwoty to punkt wyjścia.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-price">od 550€</div>
+                    <h3 class="pricing-title">Agencja nieruchomości nie powiedziała mi o podatkach — chcę wiedzieć czy mam sprawę</h3>
+                    <p class="pricing-desc">Nikt nie wyjaśnił Ci że będziesz płacić podatki co roku. Analizuję Twoją sytuację i dowody które masz, i mówię Ci wprost: czy jest podstawa do roszczenia i ile realnie możesz odzyskać.</p>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-price">od 1.200€</div>
+                    <h3 class="pricing-title">Potrzebuję oficjalnej opinii biegłego sądowego</h3>
+                    <p class="pricing-desc">Do urzędu skarbowego, do sądu, do reklamacji. Każdy przypadek jest inny — dokładną cenę ustalam po analizie Twojej sytuacji.</p>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-price">1.800 – 3.800€</div>
+                    <h3 class="pricing-title">Hacienda zawyżyła wartość mojej nieruchomości i żąda wyższego podatku</h3>
+                    <p class="pricing-desc">Urząd skarbowy wycenił Twoją nieruchomość powyżej ceny którą zapłaciłeś i teraz domaga się więcej. Przygotowuję oficjalną wycenę pericjalną która podważa ich kwotę i ma moc prawną przed urzędem i sądem.</p>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-price">2.200 – 5.000€</div>
+                    <h3 class="pricing-title">Kupuję kolejną nieruchomość i nie chcę znowu popełnić tych samych błędów</h3>
+                    <p class="pricing-desc">Zanim podpiszesz — analizuję nieruchomość którą chcesz kupić i mówię Ci dokładnie ile podatków będziesz płacić co roku i jak legalnie to zminimalizować.</p>
+                </div>
+            </div>
+
+            <div class="article-cta-section">
+                <p class="article-body-light">Każdy przypadek jest inny. Napisz do mnie z krótkim opisem sytuacji — odpowiem w ciągu 48 godzin.</p>
+                <button class="article-cta" onclick="closePricing()">Wróć do strony głównej</button>
+            </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closePricing()">Wróć do menu</button>
         </div>
     </div>
 
@@ -657,6 +721,16 @@
     }
     function closeBlog() {
         document.getElementById('blog-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openPricing() {
+        var el = document.getElementById('pricing-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closePricing() {
+        document.getElementById('pricing-overlay').classList.remove('active');
         document.body.style.overflow = '';
     }
     function openBlogPost(n) {

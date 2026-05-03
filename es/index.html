@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="pl" href="../index.html">
     <link rel="alternate" hreflang="es" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/es/">
-    <link rel="stylesheet" href="../styles.css?v=24">
+    <link rel="stylesheet" href="../styles.css?v=25">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -80,6 +80,22 @@
                         <path d="M9 18l6-6-6-6"/>
                     </svg>
                 </a>
+            </div>
+
+            <div class="service-card" onclick="openPricing()" style="cursor:pointer">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="24" cy="24" r="20"/>
+                        <path d="M24 12v24M18 20c0-2.2 2.7-4 6-4s6 1.8 6 4-2.7 4-6 4-6 1.8-6 4 2.7 4 6 4 6-1.8 6-4"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">PRECIOS</h3>
+                <p class="service-description">Precios transparentes. Sabes lo que pagas antes de decidir.</p>
+                <span class="service-link" aria-label="Ver precios">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
             </div>
 
             <div class="service-card" onclick="openBlog()" style="cursor:pointer">
@@ -200,6 +216,54 @@
         </div>
         <div class="overlay-bottom-bar">
             <button class="overlay-bottom-btn" onclick="closeArticle()">Volver al menú</button>
+        </div>
+    </div>
+
+    <!-- Pricing Overlay -->
+    <div class="article-overlay" id="pricing-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closePricing()">&times;</button>
+        <div class="article-content article-content-wide">
+            <div class="article-hero">
+                <h2 class="article-title">Precios</h2>
+                <p class="article-hero-sub">Precios transparentes. Cada caso es diferente — recibes un presupuesto exacto tras el análisis inicial. Estas cifras son el punto de partida.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-price">desde 550€</div>
+                    <h3 class="pricing-title">La agencia no me explicó los impuestos — quiero saber si tengo caso</h3>
+                    <p class="pricing-desc">Nadie te explicó que vas a pagar impuestos cada año. Analizo tu situación y las pruebas que tienes, y te digo directamente: si hay base para reclamar y cuánto puedes recuperar realmente.</p>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-price">desde 1.200€</div>
+                    <h3 class="pricing-title">Necesito un informe pericial oficial</h3>
+                    <p class="pricing-desc">Para Hacienda, para el juzgado, para una reclamación. Cada caso es diferente — el precio exacto lo fijo después de analizar tu situación.</p>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-price">1.800 – 3.800€</div>
+                    <h3 class="pricing-title">Hacienda ha sobrevalorado mi inmueble y me exige más impuestos</h3>
+                    <p class="pricing-desc">Hacienda ha valorado tu inmueble por encima del precio que pagaste y ahora te exige más. Preparo una tasación pericial oficial que rebate su cifra y tiene fuerza legal ante la administración y el tribunal.</p>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-price">2.200 – 5.000€</div>
+                    <h3 class="pricing-title">Voy a comprar otro inmueble y no quiero cometer los mismos errores</h3>
+                    <p class="pricing-desc">Antes de que firmes — analizo el inmueble que quieres comprar y te digo exactamente cuántos impuestos vas a pagar cada año y cómo minimizarlo legalmente.</p>
+                </div>
+            </div>
+
+            <div class="article-cta-section">
+                <p class="article-body-light">Cada caso es diferente. Escríbeme con una breve descripción de tu situación — respondo en 48 horas.</p>
+                <button class="article-cta" onclick="closePricing()">Volver a la página principal</button>
+            </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closePricing()">Volver al menú</button>
         </div>
     </div>
 
@@ -657,6 +721,16 @@
     }
     function closeBlog() {
         document.getElementById('blog-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openPricing() {
+        var el = document.getElementById('pricing-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closePricing() {
+        document.getElementById('pricing-overlay').classList.remove('active');
         document.body.style.overflow = '';
     }
     function openBlogPost(n) {
