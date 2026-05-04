@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="es" href="es/index.html">
     <link rel="alternate" hreflang="pl" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/">
-    <link rel="stylesheet" href="styles.css?v=30">
+    <link rel="stylesheet" href="styles.css?v=31">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -55,6 +55,7 @@
 
         <!-- Service Cards (bottom, overlaying the photo) -->
         <section class="services">
+            <button class="fixed-process-btn" onclick="openProcess()">Jak pracuję</button>
             <div class="service-card service-card-centered" id="article-card" onclick="openArticle()">
                 <h3 class="service-title service-title-large">Nikt nie wyjaśnił Ci podatków przy zakupie domu w Hiszpanii?</h3>
                 <p class="service-quote">Twój agent nieruchomości może być za to odpowiedzialny.</p>
@@ -767,9 +768,6 @@
             <button class="overlay-bottom-btn" onclick="closeProcess()">Wróć do menu</button>
         </div>
     </div>
-
-    <!-- Fixed Bottom Button -->
-    <button class="fixed-process-btn" onclick="openProcess()">Jak pracuję</button>
 
     <script>
     function openArticle() {
