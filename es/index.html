@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="pl" href="../index.html">
     <link rel="alternate" hreflang="es" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/es/">
-    <link rel="stylesheet" href="../styles.css?v=31">
+    <link rel="stylesheet" href="../styles.css?v=32">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -55,7 +55,6 @@
 
         <!-- Service Cards (bottom, overlaying the photo) -->
         <section class="services">
-            <button class="fixed-process-btn" onclick="openProcess()">Cómo trabajo</button>
             <div class="service-card service-card-centered" id="article-card" onclick="openArticle()">
                 <h3 class="service-title service-title-large">¿Nadie te explicó los impuestos al comprar tu casa en España?</h3>
                 <p class="service-quote">Tu agente inmobiliario puede ser el responsable.</p>
@@ -768,6 +767,9 @@
             <button class="overlay-bottom-btn" onclick="closeProcess()">Volver al menú</button>
         </div>
     </div>
+
+    <!-- Fixed Center Button -->
+    <button class="fixed-process-btn" onclick="openProcess()">Cómo trabajo</button>
 
     <script>
     function openArticle() {
