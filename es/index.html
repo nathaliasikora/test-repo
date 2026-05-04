@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="pl" href="../index.html">
     <link rel="alternate" hreflang="es" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/es/">
-    <link rel="stylesheet" href="../styles.css?v=28">
+    <link rel="stylesheet" href="../styles.css?v=29">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -696,6 +696,81 @@
     </div>
 
 
+    <!-- "Cómo trabajo" Overlay -->
+    <div class="article-overlay" id="process-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closeProcess()">&times;</button>
+        <div class="article-content article-content-wide">
+            <div class="article-hero">
+                <p class="process-label">CÓMO TRABAJO</p>
+                <h2 class="article-title">Del contacto a la reclamación</h2>
+                <p class="article-hero-sub">Cada paso es transparente. Sabes exactamente dónde estás — antes de pagar un solo euro.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3 class="process-step-title">Primer contacto</h3>
+                    <p class="process-step-desc">Cuéntame qué pasó: cuándo compraste, qué te dijo la agencia, qué documentos tienes. Lo miro por encima — si no hay caso, te lo digo directamente y no pierdes ni un euro.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3 class="process-step-title">Contrato y proforma</h3>
+                    <p class="process-step-desc">Si veo potencial — te paso una proforma con el coste exacto del análisis. Firmamos contrato antes de que yo toque nada. Sabes cuánto pagas antes de empezar.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3 class="process-step-title">Análisis del caso</h3>
+                    <p class="process-step-desc">Reviso la escritura de compraventa, las comunicaciones con la agencia, las declaraciones fiscales, los contratos. Busco exactamente dónde fallaron y qué te ocultaron. Si tras el análisis no hay base — te devuelvo una parte proporcional.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3 class="process-step-title">Informe pericial oficial</h3>
+                    <p class="process-step-desc">Redacto un informe pericial oficial: identifico los errores de la agencia, cuantifico el daño económico, cito la jurisprudencia del Tribunal Supremo. Documento con plena fuerza probatoria ante tribunales y Hacienda (art. 335 LEC).</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">05</div>
+                    <h3 class="process-step-title">Reclamación con abogado</h3>
+                    <p class="process-step-desc">Si el caso lo justifica — coordinamos la reclamación con un abogado especializado en derecho civil e inmobiliario. Mi informe es la base técnica; el abogado lleva la parte legal. Primero extrajudicial — si no responden, vía judicial.</p>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="process-team-section">
+                <p class="process-label">EQUIPO</p>
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 2rem;">Quién está detrás de tu caso</h2>
+                <div class="process-team-grid">
+                    <div class="process-team-member">
+                        <div class="team-role-tag">Informe pericial</div>
+                        <h3 class="team-member-name">Natalia Sikora</h3>
+                        <p class="team-member-creds">Perito judicial en fiscalidad inmobiliaria<br>Especialización: inmuebles de no residentes en España</p>
+                        <p class="team-member-bio">Analizo tu caso, identifico los errores de la agencia, cuantifico el daño y redacto el informe pericial oficial con fuerza probatoria ante el tribunal.</p>
+                    </div>
+                    <div class="process-team-member">
+                        <div class="team-role-tag">Dirección letrada</div>
+                        <h3 class="team-member-name">Germán Bercovitz Álvarez</h3>
+                        <p class="team-member-creds">Catedrático de Derecho Civil<br>Doctor — Real Colegio de España en Bolonia<br>Bercovitz &amp; Bercovitz</p>
+                        <p class="team-member-bio">Abogado y catedrático de Derecho Civil. Dirige la estrategia letrada cuando el informe pericial confirma base suficiente para reclamar: negociación, reclamación extrajudicial o demanda.</p>
+                        <a href="https://www.bercovitz.es" target="_blank" rel="noopener" class="team-member-link">Bercovitz &amp; Bercovitz →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-cta-section">
+                <p class="article-body-light">Cada caso es diferente. Escríbeme con una descripción breve de tu situación — te digo con honestidad si merece la pena seguir adelante.</p>
+                <button class="article-cta" onclick="closeProcess()">Volver a la página principal</button>
+            </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeProcess()">Volver al menú</button>
+        </div>
+    </div>
+
+    <!-- Fixed Bottom Button -->
+    <button class="fixed-process-btn" onclick="openProcess()">Cómo trabajo</button>
+
     <script>
     function openArticle() {
         var el = document.getElementById('article-overlay');
@@ -725,6 +800,16 @@
     }
     function closePricing() {
         document.getElementById('pricing-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openProcess() {
+        var el = document.getElementById('process-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeProcess() {
+        document.getElementById('process-overlay').classList.remove('active');
         document.body.style.overflow = '';
     }
     function openBlogPost(n) {

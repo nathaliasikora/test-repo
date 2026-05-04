@@ -14,7 +14,7 @@
     <link rel="alternate" hreflang="es" href="es/index.html">
     <link rel="alternate" hreflang="pl" href="index.html">
     <link rel="canonical" href="https://nataliasikora.pl/">
-    <link rel="stylesheet" href="styles.css?v=28">
+    <link rel="stylesheet" href="styles.css?v=29">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -696,6 +696,81 @@
     </div>
 
 
+    <!-- "Jak pracuję" Overlay -->
+    <div class="article-overlay" id="process-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closeProcess()">&times;</button>
+        <div class="article-content article-content-wide">
+            <div class="article-hero">
+                <p class="process-label">JAK PRACUJĘ</p>
+                <h2 class="article-title">Od kontaktu do reklamacji</h2>
+                <p class="article-hero-sub">Każdy krok jest przejrzysty. Wiesz dokładnie, na czym stoisz — zanim zapłacisz złotówkę.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3 class="process-step-title">Pierwszy kontakt</h3>
+                    <p class="process-step-desc">Opowiedz mi co się stało: kiedy kupiłeś, co powiedziała agencja, jakie masz dokumenty. Patrzę na to z góry — jeśli nie ma sprawy, mówię Ci to od razu i nie tracisz ani euro.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3 class="process-step-title">Umowa i proforma</h3>
+                    <p class="process-step-desc">Jeśli widzę potencjał — dostajesz proformę z dokładnym kosztem analizy. Podpisujemy umowę zanim zacznę pracować. Wiesz za co płacisz, zanim zapłacisz.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3 class="process-step-title">Analiza sprawy</h3>
+                    <p class="process-step-desc">Przeglądam umowę kupna, komunikację z agencją, deklaracje podatkowe, kontrakty. Szukam dokładnie gdzie zawalili i co przed Tobą ukryli. Jeśli po analizie nie ma podstaw — zwracam proporcjonalną część.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3 class="process-step-title">Opinia biegłego sądowego</h3>
+                    <p class="process-step-desc">Sporządzam oficjalną opinię pericjalną: identyfikuję błędy agencji, wyliczam szkodę finansową, powołuję orzecznictwo Sądu Najwyższego. Dokument z pełną mocą dowodową przed sądem i urzędem skarbowym (art. 335 LEC).</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">05</div>
+                    <h3 class="process-step-title">Reklamacja z adwokatem</h3>
+                    <p class="process-step-desc">Jeśli sprawa tego wymaga — koordynujemy reklamację z adwokatem specjalizującym się w prawie cywilnym i nieruchomościowym. Mój raport to baza techniczna; adwokat prowadzi stronę prawną. Najpierw pozasądowo — a jeśli nie odpowiedzą, droga sądowa.</p>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="process-team-section">
+                <p class="process-label">ZESPÓŁ</p>
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 2rem;">Kto stoi za Twoją sprawą</h2>
+                <div class="process-team-grid">
+                    <div class="process-team-member">
+                        <div class="team-role-tag">Opinia pericialna</div>
+                        <h3 class="team-member-name">Natalia Sikora</h3>
+                        <p class="team-member-creds">Biegły sądowy ds. podatków nieruchomościowych<br>Specjalizacja: nieruchomości nierezydentów w Hiszpanii</p>
+                        <p class="team-member-bio">Analizuję Twoją sprawę, identyfikuję błędy agencji, wyliczam szkodę i sporządzam oficjalną opinię biegłego sądowego z mocą dowodową przed sądem.</p>
+                    </div>
+                    <div class="process-team-member">
+                        <div class="team-role-tag">Kierownictwo prawne</div>
+                        <h3 class="team-member-name">Germán Bercovitz Álvarez</h3>
+                        <p class="team-member-creds">Katedra Prawa Cywilnego<br>Doktor — Real Colegio de España w Bolonii<br>Bercovitz &amp; Bercovitz</p>
+                        <p class="team-member-bio">Adwokat i profesor prawa cywilnego. Kieruje strategią prawną gdy opinia biegłego potwierdza podstawy do reklamacji: negocjacje, reklamacja pozasądowa lub pozew.</p>
+                        <a href="https://www.bercovitz.es" target="_blank" rel="noopener" class="team-member-link">Bercovitz &amp; Bercovitz →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-cta-section">
+                <p class="article-body-light">Każdy przypadek jest inny. Napisz do mnie z krótkim opisem sytuacji — powiem Ci szczerze, czy jest sens iść dalej.</p>
+                <button class="article-cta" onclick="closeProcess()">Wróć do strony głównej</button>
+            </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeProcess()">Wróć do menu</button>
+        </div>
+    </div>
+
+    <!-- Fixed Bottom Button -->
+    <button class="fixed-process-btn" onclick="openProcess()">Jak pracuję</button>
+
     <script>
     function openArticle() {
         var el = document.getElementById('article-overlay');
@@ -725,6 +800,16 @@
     }
     function closePricing() {
         document.getElementById('pricing-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openProcess() {
+        var el = document.getElementById('process-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeProcess() {
+        document.getElementById('process-overlay').classList.remove('active');
         document.body.style.overflow = '';
     }
     function openBlogPost(n) {
