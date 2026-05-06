@@ -205,9 +205,9 @@ body {
 }
 
 .service-title {
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     color: var(--color-text);
 }
 
@@ -237,7 +237,7 @@ body {
 }
 
 .service-description {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-weight: 300;
     color: var(--color-text-muted);
     line-height: 1.7;
