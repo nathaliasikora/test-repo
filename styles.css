@@ -1263,6 +1263,15 @@ body {
     max-width: 400px;
 }
 
+.hero-sub-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-top: 1.2rem;
+    max-width: 420px;
+}
+
 /* 3 Frentes Section */
 .frentes-grid {
     display: grid;
