@@ -36,7 +36,7 @@
                 <div class="sliced-bottom" aria-hidden="true">Natalia Sikora</div>
             </h1>
             <p class="hero-subtitle">perito judicial en impuestos inmobiliarios</p>
-
+            <p class="hero-tagline">Tu promotor, tu inmobiliaria<br>o tu gestor te la lió.<br>Yo te ayudo a reclamar.</p>
 
         </div>
 
@@ -62,7 +62,7 @@
                 </span>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openFrentes()" style="cursor:pointer">
                 <div class="service-icon">
                     <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M24 4L4 14l20 10 20-10L24 4z"/>
@@ -70,13 +70,13 @@
                         <path d="M4 34l20 10 20-10"/>
                     </svg>
                 </div>
-                <h3 class="service-title">CONSULTAS</h3>
-                <p class="service-description">Asesoramiento fiscal en materia inmobiliaria. Ayuda en la optimización de cargas fiscales y resolución de conflictos.</p>
-                <a href="#" class="service-link" aria-label="Más sobre consultas">
+                <h3 class="service-title">EL PROBLEMA</h3>
+                <p class="service-description">Promotor, inmobiliaria, gestor VUT — descubre dónde pierdes dinero y qué se puede recuperar.</p>
+                <span class="service-link" aria-label="Más">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 18l6-6-6-6"/>
                     </svg>
-                </a>
+                </span>
             </div>
 
             <div class="service-card" onclick="openPricing()" style="cursor:pointer">
@@ -230,21 +230,24 @@
 
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-price">desde 1.200€</div>
-                    <h3 class="pricing-title">La agencia no me explicó los impuestos — quiero saber si tengo caso</h3>
-                    <p class="pricing-desc">Nadie te explicó que vas a pagar impuestos cada año. Analizo tu situación y las pruebas que tienes, y te digo directamente: si hay base para reclamar y cuánto puedes recuperar realmente.</p>
+                    <div class="pricing-label">ENTRADA</div>
+                    <div class="pricing-price">1.500€</div>
+                    <h3 class="pricing-title">Auditoría Diagnóstica</h3>
+                    <p class="pricing-desc">Revisión de toda la documentación y diagnóstico claro de si hay base para reclamar y cuánto se puede recuperar aproximadamente.</p>
+                </div>
+
+                <div class="pricing-card pricing-card-featured">
+                    <div class="pricing-label">PRODUCTO ESTRELLA</div>
+                    <div class="pricing-price">8.000 – 16.000€</div>
+                    <h3 class="pricing-title">Informe Pericial Judicial</h3>
+                    <p class="pricing-desc">Informe completo, técnico y con fuerza jurídica para negociar o demandar al promotor, inmobiliaria o gestor. Incluye visita, análisis y conclusiones claras.</p>
                 </div>
 
                 <div class="pricing-card">
-                    <div class="pricing-price">1.800 – 3.800€</div>
-                    <h3 class="pricing-title">Hacienda ha sobrevalorado mi inmueble y me exige más impuestos</h3>
-                    <p class="pricing-desc">Hacienda ha valorado tu inmueble por encima del precio que pagaste y ahora te exige más. Preparo una tasación pericial oficial que rebate su cifra y tiene fuerza legal ante la administración y el tribunal.</p>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="pricing-price">2.200 – 5.000€</div>
-                    <h3 class="pricing-title">Voy a comprar otro inmueble y no quiero cometer los mismos errores</h3>
-                    <p class="pricing-desc">Antes de que firmes — analizo el inmueble que quieres comprar y te digo exactamente cuántos impuestos vas a pagar cada año y cómo minimizarlo legalmente.</p>
+                    <div class="pricing-label">CASOS COMPLEJOS</div>
+                    <div class="pricing-price">desde 22.000€</div>
+                    <h3 class="pricing-title">Defensa Integral</h3>
+                    <p class="pricing-desc">Informe + acompañamiento durante todo el procedimiento, coordinación con abogados y apoyo en negociaciones o juicio.</p>
                 </div>
             </div>
 
@@ -693,6 +696,93 @@
     </div>
 
 
+    <!-- "3 Frentes / El Problema" Overlay -->
+    <div class="article-overlay" id="frentes-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closeFrentes()">&times;</button>
+        <div class="article-content article-content-wide">
+            <div class="article-hero">
+                <p class="process-label">LA REALIDAD QUE NADIE CUENTA</p>
+                <h2 class="article-title">Miles de polacos han perdido dinero por promotores, inmobiliarias y gestores.</h2>
+                <p class="article-hero-sub">Obra nueva con defectos graves. Pisos vendidos con información falsa. Gestores de alquiler turístico que desaparecen cuando llega la sanción.</p>
+            </div>
+
+            <div class="frentes-grid">
+                <div class="frente-card">
+                    <div class="frente-label">PROMOTORES DE OBRA NUEVA</div>
+                    <h3 class="frente-title">Defectos, retrasos y promesas incumplidas</h3>
+                    <ul class="frente-list">
+                        <li>Grietas, humedades, calidades inferiores a lo contratado</li>
+                        <li>Retrasos de años en la entrega</li>
+                        <li>Avales y cantidades entregadas a cuenta mal gestionadas</li>
+                        <li>Plusvalías o gastos ocultos en la escritura</li>
+                    </ul>
+                    <p class="frente-footer">Con un buen informe pericial se puede negociar una compensación importante o ir a juicio con muchas más posibilidades.</p>
+                </div>
+
+                <div class="frente-card">
+                    <div class="frente-label">INMOBILIARIAS</div>
+                    <h3 class="frente-title">Venta con información falsa o engañosa</h3>
+                    <ul class="frente-list">
+                        <li>Pisos vendidos como “listos para alquilar” que no pueden alquilarse</li>
+                        <li>Licencias de VUT que no existen o son imposibles de conseguir</li>
+                        <li>Contratos redactados para proteger solo a la agencia</li>
+                        <li>Ocultación de deudas de comunidad o cargas</li>
+                    </ul>
+                    <p class="frente-footer">Muchos polacos compraron a través de agencias que les mintieron. Un informe técnico bien hecho cambia la negociación.</p>
+                </div>
+
+                <div class="frente-card">
+                    <div class="frente-label">GESTORES DE ALQUILER TURÍSTICO</div>
+                    <h3 class="frente-title">Mala gestión que genera sanciones y pérdidas</h3>
+                    <ul class="frente-list">
+                        <li>Sanciones por no tener licencia o por incumplir la normativa</li>
+                        <li>Pérdida de ingresos por mala comercialización</li>
+                        <li>Problemas graves con la comunidad de vecinos</li>
+                        <li>Gestores que desaparecen cuando hay multas</li>
+                    </ul>
+                    <p class="frente-footer">Hay gestores que han dejado a propietarios polacos con decenas de miles de euros en sanciones. Un informe pericial ayuda a reclamar.</p>
+                </div>
+            </div>
+
+            <!-- Casos Reales -->
+            <div class="casos-section">
+                <p class="process-label">RESULTADOS</p>
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 2rem;">Lo que se puede conseguir con un buen informe</h2>
+                <div class="casos-grid">
+                    <div class="caso-card">
+                        <div class="caso-label">PROMOTOR DE OBRA NUEVA — ALICANTE</div>
+                        <h3 class="caso-title">Defectos graves + retraso de 3 años</h3>
+                        <p class="caso-desc">Informe pericial + negociación = compensación de 87.000€ + reparación de los defectos más graves.</p>
+                    </div>
+                    <div class="caso-card">
+                        <div class="caso-label">INMOBILIARIA — COSTA BLANCA</div>
+                        <h3 class="caso-title">Piso vendido como “VUT legal” que no lo era</h3>
+                        <p class="caso-desc">Informe + reclamación = devolución parcial + indemnización por pérdida de ingresos durante 18 meses.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosistema -->
+            <div class="ecosistema-section">
+                <p class="process-label">ECOSISTEMA</p>
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1.5rem;">No trabajo sola. Formo parte de un ecosistema serio.</h2>
+                <p class="ecosistema-desc">Cuando el caso lo requiere, trabajo con el equipo de <strong>PGK Hiszpania</strong> (fiscal y contratos) y con <strong>Kenyi Martín Alcántara</strong> (responsabilidad de asesores y gestores fiscales). Si hace falta dirección letrada de alto nivel, colaboramos con <strong>Bercovitz &amp; Bercovitz</strong>.</p>
+            </div>
+
+            <div class="article-cta-section">
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1rem;">Si tu caso es serio, hablemos.</h2>
+                <p class="article-body-light">No acepto todos los asuntos. Solo aquellos donde creo que se puede recuperar dinero de verdad.</p>
+                <button class="article-cta" onclick="closeFrentes()">Volver a la página principal</button>
+            </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeFrentes()">Volver al menú</button>
+        </div>
+    </div>
+
     <!-- "Cómo trabajo" Overlay -->
     <div class="article-overlay" id="process-overlay">
         <div class="article-expand-bg">
@@ -807,6 +897,16 @@
     }
     function closeProcess() {
         document.getElementById('process-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openFrentes() {
+        var el = document.getElementById('frentes-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeFrentes() {
+        document.getElementById('frentes-overlay').classList.remove('active');
         document.body.style.overflow = '';
     }
     function openBlogPost(n) {

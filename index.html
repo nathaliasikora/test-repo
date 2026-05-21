@@ -36,7 +36,7 @@
                 <div class="sliced-bottom" aria-hidden="true">Natalia Sikora</div>
             </h1>
             <p class="hero-subtitle">biegły sądowy ds. podatków nieruchomościowych</p>
-
+            <p class="hero-tagline">Twój promotor, Twoja agencja<br>albo Twój gestor nawalił.<br>Pomagam Ci odzyskać kasę.</p>
 
         </div>
 
@@ -62,7 +62,7 @@
                 </span>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" onclick="openFrentes()" style="cursor:pointer">
                 <div class="service-icon">
                     <svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M24 4L4 14l20 10 20-10L24 4z"/>
@@ -70,13 +70,13 @@
                         <path d="M4 34l20 10 20-10"/>
                     </svg>
                 </div>
-                <h3 class="service-title">KONSULTACJE</h3>
-                <p class="service-description">Doradztwo podatkowe w zakresie nieruchomości. Pomoc w optymalizacji obciążeń podatkowych i rozstrzyganiu sporów.</p>
-                <a href="#" class="service-link" aria-label="Więcej o konsultacjach">
+                <h3 class="service-title">PROBLEM</h3>
+                <p class="service-description">Promotor, agencja, gestor VUT — sprawdź gdzie tracisz pieniądze i co można odzyskać.</p>
+                <span class="service-link" aria-label="Więcej">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 18l6-6-6-6"/>
                     </svg>
-                </a>
+                </span>
             </div>
 
             <div class="service-card" onclick="openPricing()" style="cursor:pointer">
@@ -230,21 +230,24 @@
 
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-price">od 1.200€</div>
-                    <h3 class="pricing-title">Agencja nieruchomości nie powiedziała mi o podatkach — chcę wiedzieć czy mam sprawę</h3>
-                    <p class="pricing-desc">Nikt nie wyjaśnił Ci że będziesz płacić podatki co roku. Analizuję Twoją sytuację i dowody które masz, i mówię Ci wprost: czy jest podstawa do roszczenia i ile realnie możesz odzyskać.</p>
+                    <div class="pricing-label">WEJŚCIE</div>
+                    <div class="pricing-price">1.500€</div>
+                    <h3 class="pricing-title">Audyt diagnostyczny</h3>
+                    <p class="pricing-desc">Przegląd całej dokumentacji i jasna diagnoza: czy jest podstawa do reklamacji i ile mniej więcej można odzyskać.</p>
+                </div>
+
+                <div class="pricing-card pricing-card-featured">
+                    <div class="pricing-label">PRODUKT GŁÓWNY</div>
+                    <div class="pricing-price">8.000 – 16.000€</div>
+                    <h3 class="pricing-title">Opinia biegłego sądowego</h3>
+                    <p class="pricing-desc">Pełny raport techniczny z mocą prawną — do negocjacji lub pozwu przeciwko promotorowi, agencji lub gestorowi. Zawiera wizytę, analizę i jasne wnioski.</p>
                 </div>
 
                 <div class="pricing-card">
-                    <div class="pricing-price">1.800 – 3.800€</div>
-                    <h3 class="pricing-title">Hacienda zawyżyła wartość mojej nieruchomości i żąda wyższego podatku</h3>
-                    <p class="pricing-desc">Urząd skarbowy wycenił Twoją nieruchomość powyżej ceny którą zapłaciłeś i teraz domaga się więcej. Przygotowuję oficjalną wycenę pericjalną która podważa ich kwotę i ma moc prawną przed urzędem i sądem.</p>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="pricing-price">2.200 – 5.000€</div>
-                    <h3 class="pricing-title">Kupuję kolejną nieruchomość i nie chcę znowu popełnić tych samych błędów</h3>
-                    <p class="pricing-desc">Zanim podpiszesz — analizuję nieruchomość którą chcesz kupić i mówię Ci dokładnie ile podatków będziesz płacić co roku i jak legalnie to zminimalizować.</p>
+                    <div class="pricing-label">SPRAWY ZŁOŻONE</div>
+                    <div class="pricing-price">od 22.000€</div>
+                    <h3 class="pricing-title">Obrona integralna</h3>
+                    <p class="pricing-desc">Raport + towarzyszenie przez cały proces, koordynacja z adwokatami i wsparcie w negocjacjach lub w sądzie.</p>
                 </div>
             </div>
 
@@ -693,6 +696,93 @@
     </div>
 
 
+    <!-- "3 Frentes / Problem" Overlay -->
+    <div class="article-overlay" id="frentes-overlay">
+        <div class="article-expand-bg">
+            <svg width="100%" height="100%"><rect width="100%" height="100%"/></svg>
+        </div>
+        <button class="article-close" onclick="closeFrentes()">&times;</button>
+        <div class="article-content article-content-wide">
+            <div class="article-hero">
+                <p class="process-label">REALNOŚĆ, O KTÓREJ NIKT NIE MÓWI</p>
+                <h2 class="article-title">Tysiące Polaków straciło pieniądze przez promotorów, agencje i gestorów.</h2>
+                <p class="article-hero-sub">Nowe budowy z poważnymi wadami. Mieszkania sprzedane z fałszywymi informacjami. Gestorzy najmu turystycznego, którzy znikają gdy przychodzi kara.</p>
+            </div>
+
+            <div class="frentes-grid">
+                <div class="frente-card">
+                    <div class="frente-label">PROMOTORZY NOWYCH BUDÓW</div>
+                    <h3 class="frente-title">Wady, opóźnienia i złamane obietnice</h3>
+                    <ul class="frente-list">
+                        <li>Pęknięcia, wilgoć, materiały gorsze niż w umowie</li>
+                        <li>Opóźnienia w oddaniu nawet o kilka lat</li>
+                        <li>Źle zarządzane gwarancje i zaliczki</li>
+                        <li>Ukryte koszty i plusvalía w akcie notarialnym</li>
+                    </ul>
+                    <p class="frente-footer">Z dobrą opinią biegłego można wynegocjować poważną rekompensatę lub iść do sądu z dużo większymi szansami.</p>
+                </div>
+
+                <div class="frente-card">
+                    <div class="frente-label">AGENCJE NIERUCHOMOŚCI</div>
+                    <h3 class="frente-title">Sprzedaż z fałszywymi lub wprowadzającymi w błąd informacjami</h3>
+                    <ul class="frente-list">
+                        <li>Mieszkania sprzedane jako „gotowe do wynajmu" — a wynajmować się nie da</li>
+                        <li>Licencje VUT, które nie istnieją albo są niemożliwe do uzyskania</li>
+                        <li>Umowy napisane żeby chronić tylko agencję</li>
+                        <li>Zatajenie długów wspólnoty lub obciążeń</li>
+                    </ul>
+                    <p class="frente-footer">Wielu Polaków kupiło przez agencje, które im kłamały. Dobry raport techniczny zmienia negocjacje.</p>
+                </div>
+
+                <div class="frente-card">
+                    <div class="frente-label">GESTORZY NAJMU TURYSTYCZNEGO</div>
+                    <h3 class="frente-title">Złe zarządzanie generujące kary i straty</h3>
+                    <ul class="frente-list">
+                        <li>Kary za brak licencji lub naruszenie przepisów</li>
+                        <li>Utrata przychodów przez złą komercjalizację</li>
+                        <li>Poważne problemy ze wspólnotą mieszkaniową</li>
+                        <li>Gestorzy, którzy znikają gdy przychodzą mandaty</li>
+                    </ul>
+                    <p class="frente-footer">Są gestorzy, którzy zostawili polskich właścicieli z dziesiątkami tysięcy euro w karach. Opinia pericialna pomaga odzyskać.</p>
+                </div>
+            </div>
+
+            <!-- Casos Reales -->
+            <div class="casos-section">
+                <p class="process-label">WYNIKI</p>
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 2rem;">Co można osiągnąć z dobrą opinią biegłego</h2>
+                <div class="casos-grid">
+                    <div class="caso-card">
+                        <div class="caso-label">PROMOTOR NOWEJ BUDOWY — ALICANTE</div>
+                        <h3 class="caso-title">Poważne wady + opóźnienie 3 lata</h3>
+                        <p class="caso-desc">Opinia pericialna + negocjacje = rekompensata 87.000€ + naprawa najpoważniejszych wad.</p>
+                    </div>
+                    <div class="caso-card">
+                        <div class="caso-label">AGENCJA — COSTA BLANCA</div>
+                        <h3 class="caso-title">Mieszkanie sprzedane jako „legalne VUT" — a nie było</h3>
+                        <p class="caso-desc">Raport + reklamacja = częściowy zwrot + odszkodowanie za utratę przychodów przez 18 miesięcy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecosistema -->
+            <div class="ecosistema-section">
+                <p class="process-label">EKOSYSTEM</p>
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1.5rem;">Nie pracuję sama. Jestem częścią poważnego zespołu.</h2>
+                <p class="ecosistema-desc">Kiedy sprawa tego wymaga, pracuję z zespołem <strong>PGK Hiszpania</strong> (podatki i umowy) oraz z <strong>Kenyi Martín Alcántara</strong> (odpowiedzialność doradców i gestorów podatkowych). Jeśli potrzebna jest kierownictwo prawne najwyższego poziomu — współpracujemy z <strong>Bercovitz &amp; Bercovitz</strong>.</p>
+            </div>
+
+            <div class="article-cta-section">
+                <h2 class="article-title" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 1rem;">Jeśli Twoja sprawa jest poważna — porozmawiajmy.</h2>
+                <p class="article-body-light">Nie biorę wszystkich zleceń. Tylko te, gdzie uważam że można realnie odzyskać pieniądze.</p>
+                <button class="article-cta" onclick="closeFrentes()">Wróć do strony głównej</button>
+            </div>
+        </div>
+        <div class="overlay-bottom-bar">
+            <button class="overlay-bottom-btn" onclick="closeFrentes()">Wróć do menu</button>
+        </div>
+    </div>
+
     <!-- "Jak pracuję" Overlay -->
     <div class="article-overlay" id="process-overlay">
         <div class="article-expand-bg">
@@ -807,6 +897,16 @@
     }
     function closeProcess() {
         document.getElementById('process-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    function openFrentes() {
+        var el = document.getElementById('frentes-overlay');
+        el.scrollTop = 0;
+        el.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeFrentes() {
+        document.getElementById('frentes-overlay').classList.remove('active');
         document.body.style.overflow = '';
     }
     function openBlogPost(n) {

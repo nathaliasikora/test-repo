@@ -1244,4 +1244,158 @@ body {
     .services {
         grid-template-columns: 1fr;
     }
+    .frentes-grid {
+        grid-template-columns: 1fr;
+    }
+    .casos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hero Tagline */
+.hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: var(--color-accent);
+    line-height: 1.4;
+    margin-top: 1rem;
+    font-style: italic;
+    max-width: 400px;
+}
+
+/* 3 Frentes Section */
+.frentes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.frente-card {
+    background: rgba(212, 200, 160, 0.08);
+    border: 1px solid rgba(212, 200, 160, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.frente-label {
+    color: var(--color-accent);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+}
+
+.frente-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.frente-list {
+    list-style: none;
+    padding: 0;
+}
+
+.frente-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.4rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.frente-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+.frente-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Casos Reales */
+.casos-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(212, 200, 160, 0.15);
+}
+
+.casos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.caso-card {
+    background: rgba(212, 200, 160, 0.06);
+    border: 1px solid rgba(212, 200, 160, 0.15);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.caso-label {
+    color: var(--color-accent);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+.caso-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.caso-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+/* Ecosistema */
+.ecosistema-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(212, 200, 160, 0.15);
+    text-align: center;
+}
+
+.ecosistema-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ecosistema-desc strong {
+    color: #ffffff;
+}
+
+/* Pricing label */
+.pricing-label {
+    color: var(--color-accent);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+}
+
+/* Pricing featured card */
+.pricing-card-featured {
+    background: rgba(212, 200, 160, 0.15);
+    border-color: var(--color-accent);
 }
