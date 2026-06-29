@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Municipality {
+  id                     String   @id @default(cuid())
+  ineCode                String   @unique @map("ine_code")
+  name                   String
+  slug                   String   @unique
+  province               String
+  provinceCode           String   @map("province_code")
+  autonomousCommunity    String   @map("autonomous_community")
+  autonomousCommunityCode String  @map("autonomous_community_code")
+  population             Int?
+  populationYear         Int?     @map("population_year")
+  officialWebsiteUrl     String?  @map("official_website_url")
+  transparencyPortalUrl  String?  @map("transparency_portal_url")
+  latitude               Float?
+  longitude              Float?
+  createdAt              DateTime @default(now()) @map("created_at")
+  updatedAt              DateTime @updatedAt @map("updated_at")
+
+  budgetRecords     BudgetRecord[]
+  officialSalaries  OfficialSalary[]
+  dataQualityFlags  DataQualityFlag[]
+
+  @@index([name])
+  @@index([slug])
+  @@index([ineCode])
+  @@index([province])
+  @@index([autonomousCommunity])
+  @@map("municipalities")
+}
+
+model BudgetSource {
+  id          String   @id @default(cuid())
+  name        String
+  sourceType  String   @map("source_type")
+  officialUrl String?  @map("official_url")
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  budgetRecords  BudgetRecord[]
+  officialSalaries OfficialSalary[]
+  importBatches  ImportBatch[]
+
+  @@map("budget_sources")
+}
+
+model BudgetRecord {
+  id                 String   @id @default(cuid())
+  municipalityId     String   @map("municipality_id")
+  year               Int
+  recordType         String   @map("record_type") // budget | liquidation
+  side               String   // income | expense
+  classificationType String   @map("classification_type") // economic | program | organic
+  chapterCode        String   @map("chapter_code")
+  chapterName        String   @map("chapter_name")
+  articleCode        String?  @map("article_code")
+  articleName        String?  @map("article_name")
+  conceptCode        String?  @map("concept_code")
+  conceptName        String?  @map("concept_name")
+  subconceptCode     String?  @map("subconcept_code")
+  subconceptName     String?  @map("subconcept_name")
+  amount             Float
+  amountType         String   @map("amount_type") // initial_budget | final_budget | recognized_obligations | payments | rights_recognized
+  sourceId           String?  @map("source_id")
+  sourceFile         String?  @map("source_file")
+  importBatchId      String?  @map("import_batch_id")
+  isDemo             Boolean  @default(false) @map("is_demo")
+  createdAt          DateTime @default(now()) @map("created_at")
+
+  municipality Municipality @relation(fields: [municipalityId], references: [id])
+  source       BudgetSource? @relation(fields: [sourceId], references: [id])
+
+  @@index([municipalityId, year])
+  @@index([municipalityId, year, recordType])
+  @@index([municipalityId, year, classificationType])
+  @@index([municipalityId, year, side])
+  @@map("budget_records")
+}
+
+model OfficialSalary {
+  id               String   @id @default(cuid())
+  municipalityId   String   @map("municipality_id")
+  year             Int
+  personName       String?  @map("person_name")
+  role             String
+  dedicationType   String?  @map("dedication_type")
+  grossAnnualAmount Float   @map("gross_annual_amount")
+  sourceId         String?  @map("source_id")
+  sourceFile       String?  @map("source_file")
+  notes            String?
+  isDemo           Boolean  @default(false) @map("is_demo")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  municipality Municipality @relation(fields: [municipalityId], references: [id])
+  source       BudgetSource? @relation(fields: [sourceId], references: [id])
+
+  @@index([municipalityId, year])
+  @@map("official_salaries")
+}
+
+model ImportBatch {
+  id           String    @id @default(cuid())
+  sourceId     String    @map("source_id")
+  year         Int
+  importType   String    @map("import_type")
+  fileName     String    @map("file_name")
+  fileHash     String?   @map("file_hash")
+  startedAt    DateTime  @map("started_at")
+  finishedAt   DateTime? @map("finished_at")
+  status       String    // pending | running | completed | failed
+  rowsImported Int       @default(0) @map("rows_imported")
+  rowsFailed   Int       @default(0) @map("rows_failed")
+  notes        String?
+
+  source BudgetSource @relation(fields: [sourceId], references: [id])
+
+  @@map("import_batches")
+}
+
+model DataQualityFlag {
+  id             String   @id @default(cuid())
+  municipalityId String   @map("municipality_id")
+  year           Int
+  flagType       String   @map("flag_type")
+  severity       String   // info | warning | error
+  message        String
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  municipality Municipality @relation(fields: [municipalityId], references: [id])
+
+  @@index([municipalityId, year])
+  @@map("data_quality_flags")
+}
